@@ -1,50 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GitHub Repository Index</title>
+    <title>Repository File List</title>
 </head>
 <body>
-    <h1>GitHub Repository Index</h1>
-    <ul id="page-list"></ul>
+    <h1>Files in My Repository</h1>
+    <ul id="file-list">
+        <!-- Files will be listed here -->
+    </ul>
 
     <script>
-        // Replace with your GitHub username, repository name, and token
-        const username = 'yourusername';
-        const repo = 'your-repo';
-        const token = 'your-github-token';
-
-        const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents`;
-
-        // Fetch the contents of the repository
-        fetch(apiUrl, {
-            headers: {
-                Authorization: `token ${token}`,
-            },
-        })
-        .then(response => response.json())
-        .then(data => {
-            const pageList = document.getElementById('page-list');
-
-            data.forEach(item => {
-                // Check if the item is an HTML file
-                if (item.name.endsWith('.html')) {
-                    const pageName = item.name.replace('.html', '');
-                    const pageLink = `https://github.com/${username}/${repo}/blob/main/${item.name}`;
-
-                    const listItem = document.createElement('li');
-                    const link = document.createElement('a');
-                    link.href = pageLink;
-                    link.textContent = pageName;
-
-                    listItem.appendChild(link);
-                    pageList.appendChild(listItem);
-                }
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching repository contents:', error);
-        });
+        // JavaScript to fetch and display the files will go here
     </script>
 </body>
 </html>
