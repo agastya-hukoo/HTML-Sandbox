@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const repoOwner = 'your_username'; // Replace with your GitHub username
-    const repoName = 'your_repository'; // Replace with your repository name
+    const repoOwner = 'agastya-hukoo'; // Replace with your GitHub username
+    const repoName = 'HTML-Sandbox'; // Replace with your repository name
 
     fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/`)
         .then(response => response.json())
