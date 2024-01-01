@@ -6,14 +6,14 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('wallpaper.png'); /* Add your desired background image URL here */
+            background-image: url('wallpaper.png'); /* Updated to a dark background image */
             background-size: cover;
-            color: #333;
+            color: white; /* Text color set to white */
             text-align: center;
         }
 
         h1 {
-            color: #333;
+            color: white; /* Text color set to white */
         }
 
         ul {
@@ -22,17 +22,17 @@
         }
 
         li {
-            background-color: rgba(249, 249, 249, 0.8); /* semi-transparent background */
+            background-color: rgba(50, 50, 50, 0.7); /* Darker and more transparent */
             margin: 5px 0;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid #555; /* Border color adjusted for dark theme */
             border-radius: 4px;
             text-align: left;
         }
 
         a {
             text-decoration: none;
-            color: #007bff;
+            color: #1E90FF; /* Light blue color for links for better visibility */
         }
 
         a:hover {
@@ -45,11 +45,11 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0.9); /* semi-transparent background */
+            background-color: rgba(50, 50, 50, 0.8); /* Darker and more transparent */
             padding: 20px;
-            border: 1px solid #ddd;
+            border: 1px solid #555; /* Border color adjusted for dark theme */
             border-radius: 4px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
         }
     </style>
 </head>
@@ -61,10 +61,10 @@
 
     <!-- Modal for naming files -->
     <div id="nameModal">
-        <label for="fileName">Name for the file:</label>
+        <label for="fileName" style="color:white;">Name for the file:</label>
         <input type="text" id="fileName" name="fileName">
-        <button onclick="saveName()">Save</button>
-        <button onclick="closeModal()">Cancel</button>
+        <button onclick="saveName()" style="background: #333; color: white;">Save</button>
+        <button onclick="closeModal()" style="background: #555; color: white;">Cancel</button>
     </div>
 
     <script src="fetch_repo_files.js"></script>
