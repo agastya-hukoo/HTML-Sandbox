@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const repoOwner = 'agastya-hukoo'; // Replace with your GitHub username
+    const repoOwner = 'agastyahukoo'; // Replace with your GitHub username
     const repoName = 'HTML-Sandbox'; // Replace with your repository name
     const baseUrl = `https://${repoOwner}.github.io/${repoName}/`; // Base URL for GitHub Pages
 
