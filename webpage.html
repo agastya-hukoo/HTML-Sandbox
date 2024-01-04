@@ -32,5 +32,21 @@
     <footer>
         <p>Copyright © Your Name</p>
     </footer>
+    <!-- Place this script before the closing </body> tag in your HTML -->
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const imageContainer = document.querySelector('.image-container');
+        const imageNames = ["image1.jpg", "image2.jpg", "image3.jpg"]; // Add the names of your images here
+
+        imageNames.forEach(name => {
+            let img = document.createElement('img');
+            img.src = `content/${name}`;
+            img.alt = `Artwork ${name}`;
+            imageContainer.appendChild(img);
+        });
+    });
+</script>
+
+
 </body>
 </html>
