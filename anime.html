@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anime Comics</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+  }
+  .image-grid img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Anime Comics Gallery</h1>
+  <div class="image-grid">
+    <!-- Images will be loaded here -->
+  </div>
+</div>
+
+<script>
+  // Assuming you have 10 images named image1.jpg, image2.jpg, ..., image10.jpg
+  const totalImages = 10; // Change this to the total number of images in your folder
+  const folder = 'Content/'; // Folder where your images are stored
+
+  for(let i = 1; i <= totalImages; i++) {
+    const img = document.createElement('img');
+    img.src = folder + 'image' + i + '.jpg'; // Change the extension if your images are in a different format
+    img.alt = 'Anime Comic ' + i;
+    document.querySelector('.image-grid').appendChild(img);
+  }
+</script>
+</body>
+</html>
