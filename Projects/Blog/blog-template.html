@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Data Structures</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-mode {
+            background-color: #333;
+            color: #f7f7f7;
+        }
+
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        nav li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav li a:hover {
+            color: #007BFF;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #007BFF; /* Changed color of the button */
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3; /* Darken color of the button on hover */
+        }
+
+        footer {
+            text-align: center;
+            background-color: #111;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.2);
+        }
+
+        /* Styling for individual blog post page */
+        .blog-content {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .blog-title {
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .blog-paragraph {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        #typeEffectParagraph {
+            border-right: 0.15em solid #007BFF; /* Cursor color */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+            <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="blog-content">
+        <h1 class="blog-title">Introduction to Data Structures: Arrays, Linked Lists, Trees, Graphs, etc.</h1>
+        
+        <p class="blog-paragraph">
+            Data structures are foundational in computer science, serving as a way to organize and store data in an efficient manner. They are crucial for implementing algorithms and building other data structures. In this post, we will delve into some of the most common data structures: Arrays, Linked Lists, Trees, and Graphs. By understanding their fundamental principles and applications, you can better appreciate the beauty of efficient data organization.
+        </p>
+
+        <!-- Content about Arrays -->
+        <h2>1. Arrays</h2>
+        <p class="blog-paragraph">
+            An array is a collection of items stored at contiguous memory locations. These items can be of the same type, like integers, floating-point numbers, or strings.
+        </p>
+        <p class="blog-paragraph">Characteristics:</p>
+        <ul>
+            <li class="blog-paragraph">Fixed Size: Once declared, the size cannot be changed.</li>
+            <li class="blog-paragraph">Random Access: You can instantly access any element with its index.</li>
+            <li class="blog-paragraph">Contiguous Memory: Elements are stored next to each other in memory.</li>
+        </ul>
+        <p class="blog-paragraph">Applications:</p>
+        <ul>
+            <li class="blog-paragraph">Store data in a tabular format.</li>
+            <li class="blog-paragraph">Implement other data structures like heaps.</li>
+        </ul>
+
+        <!-- Content about Linked Lists -->
+        <h2>2. Linked Lists</h2>
+        <p class="blog-paragraph">
+            A linked list is a data structure in which elements, known as nodes, are connected using pointers. Unlike arrays, linked lists are dynamic in size.
+        </p>
+        <p class="blog-paragraph">Types:</p>
+        <ul>
+            <li class="blog-paragraph">Singly Linked List: Each node points to the next node.</li>
+            <li class="blog-paragraph">Doubly Linked List: Each node points to both the next and previous nodes.</li>
+        </ul>
+        <p class="blog-paragraph">Characteristics:</p>
+        <ul>
+            <li class="blog-paragraph">Dynamic Size: Nodes can be easily added or removed.</li>
+            <li class="blog-paragraph">Memory Efficiency: Only uses memory as needed.</li>
+        </ul>
+
+        <!-- Content about Trees -->
+        <h2>3. Trees</h2>
+        <p class="blog-paragraph">
+            A tree is a hierarchical data structure that consists of nodes connected by edges. It has a root node and zero or more child nodes.
+        </p>
+        <p class="blog-paragraph">Types:</p>
+        <ul>
+            <li class="blog-paragraph">Binary Tree: Each node has at most two children.</li>
+            <li class="blog-paragraph">AVL Tree: A self-balancing binary search tree.</li>
+            <!-- Add more tree types here -->
+        </ul>
+        <p class="blog-paragraph">Characteristics:</p>
+        <ul>
+            <li class="blog-paragraph">Hierarchical Structure: Nodes are arranged in levels.</li>
+            <li class="blog-paragraph">Ordered Relationship: Nodes have parent-child relationships.</li>
+        </ul>
+
+        <!-- Content about Graphs -->
+        <h2>4. Graphs</h2>
+        <p class="blog-paragraph">
+            A graph is a set of nodes (or vertices) connected by edges.
+        </p>
+        <p class="blog-paragraph">Types:</p>
+        <ul>
+            <li class="blog-paragraph">Directed Graph (Digraph): Edges have a direction.</li>
+            <li class="blog-paragraph">Undirected Graph: Edges do not have a direction.</li>
+            <li class="blog-paragraph">Weighted Graph: Edges have weights or costs.</li>
+            <!-- Add more graph types here -->
+        </ul>
+        <p class="blog-paragraph">Applications:</p>
+        <ul>
+            <li class="blog-paragraph">Modeling relationships between entities.</li>
+            <li class="blog-paragraph">Network analysis and optimization.</li>
+            <!-- Add more graph applications here -->
+        </ul>
+
+        <!-- Conclusion -->
+        <h2>Conclusion</h2>
+        <p class="blog-paragraph">
+            These are just a few of the foundational data structures in computer science. Understanding their nuances, strengths, and weaknesses is essential for designing efficient algorithms and systems. As you dive deeper into this field, you'll discover a plethora of other data structures, each tailored for specific applications and challenges. Happy coding!
+        </p>
+                <p class="blog-paragraph">Published on 11th August 2023
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 My Programming Blog. All rights reserved.</p>
+    </footer>
+
+    <script>
+        /* Typing effect for blog post paragraph */
+        let paragraphText = 'This is your sample paragraph text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet eros lacinia, mollis libero eu, egestas purus.';
+        let paragraphIndex = 0;
+
+        function typeParagraph() {
+            if (paragraphIndex < paragraphText.length) {
+                document.getElementById('typeEffectParagraph').textContent += paragraphText[paragraphIndex];
+                paragraphIndex++;
+                setTimeout(typeParagraph, 50); // Duration for each character
+            } else {
+                // Append cursor after typing completes
+                document.getElementById('typeEffectParagraph').textContent += '|';
+            }
+        }
+
+        typeParagraph(); // Initiate the typing effect
+
+        /* Dark Mode Toggle */
+        const darkModeToggle = document.querySelector(".dark-mode-toggle");
+        const body = document.querySelector("body");
+
+        darkModeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+        });
+    </script>
+</body>
+
+</html>
