@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MachineMinds</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Set a black background color */
+            color: #fff; /* Set a white text color */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-mode {
+            background-color: #333; /* Set a dark background color */
+            color: #f7f7f7; /* Set a light text color */
+        }
+
+        header {
+            background-color: #111; /* Set a dark color for the header */
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            /* Remove the header text and adjust other styles accordingly */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        nav li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav li a:hover {
+            color: #ff5a5f;
+        }
+
+        .hero {
+            /* Removed the background image */
+            background-color: #111; /* Set a dark color for the hero section */
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content h2 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+             background-color: #007BFF;  /* Set a bright color for the buttons */
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+         background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #111; /* Set a dark color for the footer */
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .main-title {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .typing-effect {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 0.15em solid #ff5a5f; /* Use your desired cursor color */
+            white-space: nowrap;
+            letter-spacing: 0.15em;
+            animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+            margin-top: 20px;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #ff5a5f; } /* Use your desired cursor color */
+        }
+
+        /* Add new CSS styles for the dark mode toggle button */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.2);
+        }
+
+        /* Add new CSS styles for the blog post box */
+        .blog-posts {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+
+        .blog-post {
+            border: 1px solid #222; /* Set a slightly lighter border color for the blog post box */
+            border-radius: 5px;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background-color: #333; /* Set a dark color for the blog post box */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.code {
+    background-color: #1E1E1E; /* Dark gray background color for the code box */
+    color: #E0E0E0; /* Light gray text color for the code */
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    overflow-x: auto; /* Enable horizontal scrolling for long code lines */
+}
+
+.blog-post:hover {
+    transform: translateY(-10px); /* Lift the blog post box slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase the shadow for depth on hover */
+    background-color: #444; /* Slight change in color for feedback */
+}
+
+        .blog-post h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .blog-post p {
+            font-size: 16px;
+            }
+                    /* Smooth transitions for all hover effects */
+        * {
+            transition: all 0.3s ease;
+        }
+
+        /* Animate the hero content for a fade-in effect */
+        .hero-content {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInUp 1.5s forwards 0.5s;
+        }
+
+        /* Animate each blog post for a staggered fade-in effect */
+        .blog-post {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        /* Add animation delay for each blog post for a staggered effect */
+        .blog-post:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+        .blog-post:nth-child(2) {
+            animation-delay: 0.75s;
+        }
+        .blog-post:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        /* Keyframes for the fadeInUp animation */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Add a slight shadow to the blog post for better depth perception */
+        .blog-post {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-post:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Add a pulsing effect to the Read More button */
+        .btn {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+    /* Center the Code of the Day content */
+    .code-of-the-day .code-content {
+        text-align: center;
+    }
+
+    /* Style the Code of the Day title and paragraph */
+    .code-of-the-day h2, .code-of-the-day p {
+        margin-bottom: 10px;
+    }
+
+    /* Style the Code of the Day code box */
+    .code-box {
+        background-color: #1E1E1E; /* Dark gray background color for the code box */
+        border-radius: 5px;
+        padding: 20px;
+        overflow-x: auto;
+        max-width: 800px; /* Set a maximum width for the code box */
+        margin: 0 auto; /* Center the code box horizontally */
+    }
+
+    /* Style the typed code lines */
+    .typing-effect {
+        font-family: 'Consolas', monospace;
+        white-space: pre-line; /* Preserve newlines and spaces */
+    }
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Remove the header text and adjust other styles accordingly -->
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="https://www.youtube.com/@Agastya-Hukoo">YouTube</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Place to display the typing effect -->
+            <h1 class="main-title" id="typeEffect"></h1>
+            <p>Explore the fascinating world of programming and software development with our informative articles and tutorials.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </section>
+    <script>
+        /* New Typing Effect using JavaScript */
+        let titleText = 'MachineMinds ';
+        let currentIndex = 0;
+
+        function typeTitle() {
+            if (currentIndex < titleText.length) {
+                document.getElementById('typeEffect').textContent += titleText[currentIndex];
+                currentIndex++;
+                setTimeout(typeTitle, 100); // Duration for each character
+            } else {
+                // Append cursor after typing completes
+                document.getElementById('typeEffect').textContent += '';
+            }
+        }
+
+        typeTitle(); // Initiate the typing effect
+
+    // Read the contents of the local text file
+    const codeFilePath = 'code-of-the-day.txt';
+    
+    fetch(codeFilePath)
+        .then(response => response.text())
+        .then(codeText => {
+            typeCodeText(codeText);
+        })
+        .catch(error => {
+            console.error('Error reading code file:', error);
+        });
+
+    // Function to simulate typing effect for code text
+    function typeCodeText(codeText) {
+        let codeBox = document.querySelector('.typing-effect');
+        let codeLines = codeText.split('\n');
+        let currentLineIndex = 0;
+
+        function typeLine() {
+            if (currentLineIndex < codeLines.length) {
+                codeBox.textContent += codeLines[currentLineIndex] + '\n';
+                currentLineIndex++;
+                setTimeout(typeLine, 50); // Duration for each line
+            }
+        }
+
+        typeLine(); // Initiate the typing effect
+    }
+</script>
+
+    <!-- Code of the Day section -->
+    <section class="code-of-the-day">
+        <div class="code-content">
+            <h2>Code of the Day</h2>
+            <p>Check out today's featured code snippet:</p>
+            <div class="code-box">
+                <pre class="typing-effect code"></pre>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Blog post box -->
+        <div class="blog-posts">
+            <!-- Sample blog post links -->
+            <div class="blog-post" onclick="window.location.href='blog-post-1.html'">
+                <h3>Introduction to Data Structures: Arrays, Linked Lists, Trees, Graphs, etc.</h3>
+                <p>Data structures are foundational in computer science, serving as a way to organize and store data in an efficient manner...(11th August 2023)</p>
+            </div>
+            <div class="blog-post" onclick="window.location.href='blog-post-2.html'">
+                <h3>Blog Post 2</h3>
+                <p>Check out this exciting tutorial on web development.</p>
+            </div>
+            <div class="blog-post" onclick="window.location.href='blog-post-3.html'">
+                <h3>Blog Post 3</h3>
+                <p>Learn about the latest trends in artificial intelligence.</p>
+            </div>
+            <!-- Add more blog post links as needed -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 MachineMinds. All rights reserved.</p>
+    </footer>
+
+    <!-- Add JavaScript for the dark mode toggle -->
+    <!-- Add JavaScript for the dark mode toggle -->
+    <script>
+        const darkModeToggle = document.querySelector(".dark-mode-toggle");
+        const body = document.querySelector("body");
+
+        darkModeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+        });
+    </script>
+</body>
+</html>
