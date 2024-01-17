@@ -12,7 +12,7 @@ Welcome to the HTML Sandbox! This repository serves as a dynamic and interactive
 ## Getting Started
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/[your-username]/html-sandbox.git
+   git clone https://github.com/agastyahukoo/html-sandbox.git
    ```
 2. **Navigate to the Project Folder:**
    ```bash
@@ -33,9 +33,6 @@ Welcome to the HTML Sandbox! This repository serves as a dynamic and interactive
 ## Guidelines
 - **Code Standards:** Follow best practices and coding standards for HTML, CSS, and JavaScript.
 - **Documentation:** Clearly document your code for easy understanding and collaboration.
-
-## Support
-If you encounter any issues or have questions, please open an issue in the repository or contact [your email/contact information].
 
 ## License
 This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
