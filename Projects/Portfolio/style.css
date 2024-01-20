@@ -4,28 +4,19 @@ body, html {
     scroll-behavior: smooth;
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-}
-
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+    background-color: #111;
+    color: #fff;
 }
 
 header {
-    background: #333;
+    background: transparent;
     color: #fff;
     padding: 20px 0;
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 1000;
-}
-
-header h1 {
-    margin: 0;
-    text-align: center;
-    font-size: 2.5em;
+    transition: background-color 0.3s;
 }
 
 nav ul {
@@ -47,23 +38,26 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #f4f4f4;
-    text-decoration: underline;
+    color: #ddd;
 }
 
-.section {
-    padding: 20px 0;
-    transition: background-color 0.3s;
-}
-
-.bg-light {
-    background-color: #eee;
-}
-
-h2 {
+.full-screen-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
     text-align: center;
-    font-size: 2em;
-    margin-bottom: 20px;
+}
+
+.dark-section {
+    padding: 50px 0;
+    background-color: #222;
+}
+
+.content {
+    width: 80%;
+    margin: auto;
 }
 
 .social-links {
@@ -74,54 +68,28 @@ h2 {
 .social-link {
     margin: 0 10px;
     font-size: 2em;
-    color: #333;
+    color: #fff;
     transition: color 0.3s;
 }
 
 .social-link:hover {
-    color: #555;
-}
-
-form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-}
-
-form button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background: #333;
-    color: #fff;
-    font-size: 1.2em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background: #444;
+    color: #bbb;
 }
 
 footer {
-    background: #333;
-    color: #fff;
     text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
+    padding: 10px;
+    background: #000;
+    color: #fff;
 }
 
-/* Add animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+/* Add scroll effect for header */
+window.onscroll = function() {scrollFunction()};
 
-.container {
-    animation: fadeIn 1s;
+function scrollFunction() {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.querySelector("header").style.backgroundColor = "#000";
+    } else {
+        document.querySelector("header").style.backgroundColor = "transparent";
+    }
 }
