@@ -74,3 +74,26 @@ footer {
         opacity: 0;
     }
 }
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply fade-in to sections */
+section {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.3s; /* Adjust delay as needed */
+}
+
+/* Adjust this as needed for different sections if they have specific IDs or classes */
+section#home, section#second-section {
+    visibility: hidden;
+}
