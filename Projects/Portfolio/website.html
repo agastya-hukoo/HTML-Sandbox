@@ -5,61 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Add Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Your Portfolio</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#social-media">Social Media</a></li>
+                <!-- Add other navigation items here -->
+            </ul>
+        </nav>
     </header>
 
-    <section id="about" class="section bg-light">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>Hello, I'm a computer science student with a passion for technology, coding, and innovation. Welcome to my portfolio!</p>
-            <!-- Social Media Links -->
+    <section id="home" class="full-screen-section">
+        <div class="content">
+            <h1>Your Name</h1>
+        </div>
+    </section>
+
+    <section id="social-media" class="dark-section">
+        <div class="content">
+            <h2>Connect with Me</h2>
             <div class="social-links">
-                <a href="https://leetcode.com/yourusername" class="social-link"><i class="fab fa-leetcode"></i></a>
-                <a href="https://github.com/yourusername" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="https://www.youtube.com/channel/yourchannel" class="social-link"><i class="fab fa-youtube"></i></a>
-                <a href="https://twitter.com/yourusername" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com/yourusername" class="social-link"><i class="fab fa-instagram"></i></a>
+                <!-- Social Media Links -->
+                <!-- Replace # with your actual social media links -->
+                <a href="#" class="social-link"><i class="fab fa-leetcode"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>Projects</h2>
-            <!-- Add your project details here -->
-        </div>
-    </section>
-
-    <section id="contact" class="section bg-light">
-        <div class="container">
-            <h2>Contact</h2>
-            <form id="contact-form">
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-    </section>
+    <!-- Add more sections here -->
 
     <footer>
-        <div class="container">
-            <p>© 2024 Your Name</p>
-        </div>
+        <p>© 2024 Your Name</p>
     </footer>
 
     <script src="script.js"></script>
