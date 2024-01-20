@@ -1,40 +1,33 @@
-window.onload = function() {
-    // Typing effect
-    const typingText = "Your Name";
-    const typingElement = document.getElementById('typing');
-    let idx = 0;
-
-    function typeWriter() {
-        if (idx < typingText.length) {
-            typingElement.innerHTML += typingText.charAt(idx);
-            idx++;
-            setTimeout(typeWriter, 150); // Adjust speed here
-        } else {
-            typingElement.classList.add('typing-cursor');
+function typeWriter(element, text, speed) {
+    let i = 0;
+    function typing() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, speed);
         }
     }
+    typing();
+}
 
+window.onload = function() {
+    const typingElement = document.getElementById('typing');
     if (typingElement) {
-        typeWriter();
+        typeWriter(typingElement, "Your Name", 150);
     }
 };
 
-// Function to check if an element is in viewport
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
         rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
     );
 }
 
-// Event listener for scroll to check each section
-document.addEventListener('scroll', function () {
-    document.querySelectorAll('section').forEach(section => {
-        if (isInViewport(section) && !section.classList.contains('visible')) {
-            section.classList.add('visible');
-        }
-    });
+document.addEventListener('scroll', function() {
+    const secondSection = document.getElementById('second-section');
+    if (isInViewport(secondSection)) {
+        secondSection.classList.add('visible');
+    }
 });
