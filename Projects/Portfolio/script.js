@@ -1,14 +1,10 @@
-document.getElementById('contact-form').addEventListener('submit', function(event){
-    event.preventDefault();
-    alert('Thank you for your message!');
-});
+window.onscroll = function() {scrollFunction()};
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+function scrollFunction() {
+    var header = document.querySelector("header");
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        header.style.backgroundColor = "#000";
+    } else {
+        header.style.backgroundColor = "transparent";
+    }
+}
