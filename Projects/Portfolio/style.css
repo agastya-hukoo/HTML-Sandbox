@@ -1,7 +1,6 @@
 body, html {
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #fff;
@@ -88,12 +87,12 @@ html {
 
 /* Apply fade-in to sections */
 section {
-    opacity: 0;
+    opacity: 0; /* Initially hidden, will become visible when in viewport */
     animation: fadeIn 1s ease-out forwards;
     animation-delay: 0.3s; /* Adjust delay as needed */
 }
 
-/* Adjust this as needed for different sections if they have specific IDs or classes */
-section#home, section#second-section {
-    visibility: hidden;
+/* Class to be added by JavaScript */
+.visible {
+    opacity: 1;
 }
