@@ -4,25 +4,24 @@ body, html {
     scroll-behavior: smooth;
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #111;
     color: #fff;
+    background-color: #111;
 }
 
 header {
-    background: transparent;
-    color: #fff;
-    padding: 20px 0;
     position: fixed;
     width: 100%;
     top: 0;
+    background: transparent;
+    color: #fff;
     z-index: 1000;
-    transition: background-color 0.3s;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     text-align: center;
+    margin: 10px 0;
 }
 
 nav ul li {
@@ -44,25 +43,16 @@ nav ul li a:hover {
 .full-screen-section {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #000;
     text-align: center;
-}
-
-.dark-section {
-    padding: 50px 0;
-    background-color: #222;
-}
-
-.content {
-    width: 80%;
-    margin: auto;
+    padding-top: 60px; /* Adjusted for header */
 }
 
 .social-links {
-    text-align: center;
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 .social-link {
@@ -81,15 +71,4 @@ footer {
     padding: 10px;
     background: #000;
     color: #fff;
-}
-
-/* Add scroll effect for header */
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-        document.querySelector("header").style.backgroundColor = "#000";
-    } else {
-        document.querySelector("header").style.backgroundColor = "transparent";
-    }
 }
