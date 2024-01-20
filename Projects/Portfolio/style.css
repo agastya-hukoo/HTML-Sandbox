@@ -62,3 +62,15 @@ footer {
     background: #000;
     color: #fff;
 }
+
+.typing-cursor {
+    font-weight: bold;
+    color: #fff;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
