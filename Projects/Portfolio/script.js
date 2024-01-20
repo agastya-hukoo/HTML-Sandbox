@@ -33,3 +33,23 @@ window.onload = function() {
     // Attach scroll event to window
     window.onscroll = scrollFunction;
 };
+
+// Function to check if an element is in viewport
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Event listener for scroll to check each section
+document.addEventListener('scroll', function () {
+    document.querySelectorAll('section').forEach(section => {
+        if (isInViewport(section)) {
+            section.style.visibility = 'visible';
+        }
+    });
+});
