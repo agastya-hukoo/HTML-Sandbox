@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Sandbox</title>
     <style>
-        /* Basic reset for padding and margin */
+        /* Basic reset and box-sizing */
         * {
             margin: 0;
             padding: 0;
@@ -12,41 +12,36 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('wallpaper.png'); /* Consider using a subtle, dark background image */
-            background-size: cover;
-            color: #E8E8E8; /* Soft white color for text */
-            text-align: center;
+            font-family: 'Helvetica Neue', Arial, sans-serif; /* Professional font choice */
+            background-color: #f4f4f4; /* Light grey background for a clean look */
+            color: #333; /* Dark grey text for readability */
             line-height: 1.6;
+            padding: 20px;
         }
 
         h1 {
-            margin-top: 20px;
-            color: #FFD700; /* Gold color for heading */
+            margin-bottom: 20px;
+            color: #444; /* Dark shade for heading */
+            text-align: center;
         }
 
         ul {
             list-style-type: none;
-            padding: 20px;
+            padding: 0;
         }
 
         li {
-            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+            background-color: #fff; /* White background for list items */
             margin: 10px 0;
             padding: 15px;
-            border: 1px solid #333; /* Dark border */
+            border: 1px solid #ddd; /* Light border for subtle separation */
             border-radius: 5px;
-            text-align: left;
-            transition: background-color 0.3s ease;
-        }
-
-        li:hover {
-            background-color: rgba(50, 50, 50, 0.8); /* Slightly lighter on hover */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
         }
 
         a {
             text-decoration: none;
-            color: #FFD700; /* Gold color to match heading */
+            color: #0066cc; /* Professional blue for links */
         }
 
         a:hover {
@@ -59,33 +54,36 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.9); /* Dark background */
+            background-color: #fff; /* White modal background */
             padding: 20px;
-            border: 1px solid #333; /* Dark border */
+            border: 1px solid #ddd; /* Light border */
             border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow for modal */
         }
 
         label {
-            color: #FFF; /* White color for label */
+            color: #333; /* Consistent text color */
+            margin-bottom: 10px;
+            display: block;
         }
 
         input, button {
             padding: 10px;
             margin: 10px 0;
             border-radius: 4px;
-            border: 1px solid #333; /* Dark border */
+            border: 1px solid #ddd;
+            width: 100%;
         }
 
         button {
-            background-color: #444; /* Dark gray background */
+            background-color: #0066cc; /* Blue background for buttons */
             color: white;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #555; /* Slightly lighter on hover */
+            background-color: #0056b3; /* Slightly darker on hover */
         }
 
     </style>
