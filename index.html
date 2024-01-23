@@ -4,35 +4,49 @@
     <meta charset="UTF-8">
     <title>Sandbox</title>
     <style>
+        /* Basic reset for padding and margin */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-image: url('wallpaper.png'); /* Updated to a dark background image */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('wallpaper.png'); /* Consider using a subtle, dark background image */
             background-size: cover;
-            color: white; /* Text color set to white */
+            color: #E8E8E8; /* Soft white color for text */
             text-align: center;
+            line-height: 1.6;
         }
 
         h1 {
-            color: white; /* Text color set to white */
+            margin-top: 20px;
+            color: #FFD700; /* Gold color for heading */
         }
 
         ul {
             list-style-type: none;
-            padding: 0;
+            padding: 20px;
         }
 
         li {
-            background-color: rgba(50, 50, 50, 0.9); /* Darker and more transparent */
-            margin: 5px 0;
-            padding: 10px;
-            border: 1px solid #555; /* Border color adjusted for dark theme */
-            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #333; /* Dark border */
+            border-radius: 5px;
             text-align: left;
+            transition: background-color 0.3s ease;
+        }
+
+        li:hover {
+            background-color: rgba(50, 50, 50, 0.8); /* Slightly lighter on hover */
         }
 
         a {
             text-decoration: none;
-            color: white; /* Light blue color for links for better visibility */
+            color: #FFD700; /* Gold color to match heading */
         }
 
         a:hover {
@@ -45,12 +59,35 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(50, 50, 50, 0.9); /* Darker and more transparent */
+            background-color: rgba(0, 0, 0, 0.9); /* Dark background */
             padding: 20px;
-            border: 1px solid #555; /* Border color adjusted for dark theme */
-            border-radius: 4px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+            border: 1px solid #333; /* Dark border */
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
+
+        label {
+            color: #FFF; /* White color for label */
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #333; /* Dark border */
+        }
+
+        button {
+            background-color: #444; /* Dark gray background */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555; /* Slightly lighter on hover */
+        }
+
     </style>
 </head>
 <body>
@@ -61,10 +98,10 @@
 
     <!-- Modal for naming files -->
     <div id="nameModal">
-        <label for="fileName" style="color:white;">Name for the file:</label>
+        <label for="fileName">Name for the file:</label>
         <input type="text" id="fileName" name="fileName">
-        <button onclick="saveName()" style="background: #333; color: white;">Save</button>
-        <button onclick="closeModal()" style="background: #555; color: white;">Cancel</button>
+        <button onclick="saveName()">Save</button>
+        <button onclick="closeModal()">Cancel</button>
     </div>
 
     <script src="fetch_repo_files.js"></script>
