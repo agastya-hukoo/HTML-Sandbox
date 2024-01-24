@@ -3,25 +3,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const repoName = 'HTML-Sandbox';
     const baseUrl = `https://${repoOwner}.github.io/${repoName}/`;
 
-    function openPopup(url) {
-        const iframe = document.getElementById('siteFrame');
-        const popup = document.getElementById('sitePopup');
-        const body = document.body;
+function openPopup(url) {
+    const iframe = document.getElementById('siteFrame');
+    const popup = document.getElementById('sitePopup');
+    iframe.src = url;
+    popup.style.display = 'block';
+    document.body.classList.add('blur-background');
+}
 
-        iframe.src = url;
-        popup.classList.add('visible');
-        body.classList.add('blur-background');
-    }
-
-    function closePopup() {
-        const iframe = document.getElementById('siteFrame');
-        const popup = document.getElementById('sitePopup');
-        const body = document.body;
-
-        iframe.src = '';
-        popup.classList.remove('visible');
-        body.classList.remove('blur-background');
-    }
+function closePopup() {
+    const popup = document.getElementById('sitePopup');
+    popup.style.display = 'none';
+    document.getElementById('siteFrame').src = '';
+    document.body.classList.remove('blur-background');
+}
 
     window.closePopup = closePopup;
 
