@@ -6,16 +6,20 @@ document.addEventListener('DOMContentLoaded', function() {
 function openPopup(url) {
     const iframe = document.getElementById('siteFrame');
     const popup = document.getElementById('sitePopup');
+    const container = document.getElementById('main-container');
+
     iframe.src = url;
     popup.style.display = 'block';
-    document.body.classList.add('blur-background');
+    container.classList.add('blur-background');
 }
 
 function closePopup() {
     const popup = document.getElementById('sitePopup');
+    const container = document.getElementById('main-container');
+
     popup.style.display = 'none';
-    document.getElementById('siteFrame').src = '';
-    document.body.classList.remove('blur-background');
+    iframe.src = '';
+    container.classList.remove('blur-background');
 }
 
     window.closePopup = closePopup;
