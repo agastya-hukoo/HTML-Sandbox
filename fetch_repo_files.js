@@ -18,9 +18,10 @@ function closePopup() {
     const container = document.getElementById('main-container');
 
     popup.style.display = 'none';
-    iframe.src = '';
+    document.getElementById('siteFrame').src = '';
     container.classList.remove('blur-background');
 }
+
 
     window.closePopup = closePopup;
 
