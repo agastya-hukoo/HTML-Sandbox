@@ -1,24 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const repoOwner = 'agastyahukoo'; // Replace with your GitHub username
-    const repoName = 'HTML-Sandbox'; // Replace with your repository name
-    const baseUrl = `https://${repoOwner}.github.io/${repoName}/`; // Base URL for GitHub Pages
+    const repoOwner = 'agastyahukoo';
+    const repoName = 'HTML-Sandbox';
+    const baseUrl = `https://${repoOwner}.github.io/${repoName}/`;
 
     function openPopup(url) {
-        document.getElementById('siteFrame').src = url;
-        document.getElementById('sitePopup').style.display = 'block';
+        const iframe = document.getElementById('siteFrame');
+        const popup = document.getElementById('sitePopup');
+
+        iframe.src = url;
+        popup.style.display = 'block';
         document.body.classList.add('blur-background');
     }
 
     function closePopup() {
-        document.getElementById('sitePopup').style.display = 'none';
-        document.getElementById('siteFrame').src = '';
+        const iframe = document.getElementById('siteFrame');
+        const popup = document.getElementById('sitePopup');
+
+        iframe.src = '';
+        popup.style.display = 'none';
         document.body.classList.remove('blur-background');
     }
 
     window.closePopup = closePopup;
 
     function showBackButton(show) {
-        document.getElementById('backButton').style.display = show ? 'block' : 'none';
+        const backButton = document.getElementById('backButton');
+        backButton.style.display = show ? 'block' : 'none';
     }
 
     function fetchFiles(path = '') {
@@ -39,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (item.type === 'dir') {
                             link.href = '#';
                             link.onclick = () => {
-                                fetchFiles(item.path); 
+                                fetchFiles(item.path);
                                 return false;
                             };
                         } else {
@@ -67,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    fetchFiles(); // Fetch root directory files on load
+    fetchFiles();
 
     // Scroll behavior for header expansion and content fading
     const header = document.querySelector('.header');
@@ -79,18 +86,16 @@ document.addEventListener('DOMContentLoaded', function() {
         let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
         if (currentScroll > lastScrollTop) {
-            // Scrolling down
-            header.style.height = '350px'; // Original header size
+            header.style.height = '350px';
             mainContent.classList.add('fade-in');
             mainContent.classList.remove('fade-out');
             translucentBox.style.display = 'none';
         } else {
-            // Scrolling up
-            header.style.height = '100vh'; // Full viewport height
+            header.style.height = '100vh';
             mainContent.classList.add('fade-out');
             mainContent.classList.remove('fade-in');
             translucentBox.style.display = 'block';
         }
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Edge
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     }, false);
 });
