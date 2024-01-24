@@ -32,12 +32,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         link.href = '#';
                         link.onclick = () => { fetchFiles(item.path); return false; };
                     } else if (item.name.endsWith('.html') && item.name !== 'index.html') {
-                        // Open HTML files in the popup instead of linking directly
+                        // Open HTML files in the popup iframe instead of navigating away
                         link.href = 'javascript:void(0);';
                         link.onclick = () => { openPopup(baseUrl + item.path); };
                     } else {
-                        // Non-HTML files or index.html can be ignored or handled differently
-                        return;
+                        // Handle non-HTML files or index.html differently
+                        // For example, you could still navigate away
+                        // Or display a message that the file can't be previewed
+                        link.href = baseUrl + item.path;
                     }
 
                     listItem.appendChild(link);
