@@ -24,7 +24,7 @@
             background-image: url('background.png');
             background-size: cover;
             background-repeat: no-repeat;
-            height: 300px;
+            height: 350px;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -88,6 +88,32 @@
             margin-bottom: 10px;
         }
 
+        .welcome-box {
+            background-color: #333;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: #fff;
+        }
+
+        .back-button {
+            display: block;
+            background-color: #4da6ff;
+            color: white;
+            padding: 10px 15px;
+            margin: 10px 0;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #3991cc;
+        }
+
         #sitePopup {
             position: fixed;
             top: 50%;
@@ -132,13 +158,16 @@
         button:hover {
             background-color: #3991cc;
         }
-
     </style>
 </head>
 <body>
     <div class="header">
         <h1>View Projects</h1>
     </div>
+    <div class="welcome-box">
+        Welcome to the Sandbox Repository! Explore the projects and files below.
+    </div>
+    <a href="#" class="back-button" id="backButton" style="display: none;">Back to Root</a>
     <div class="main-content">
         <div class="sidebar">
             <h2>Update Notes</h2>
