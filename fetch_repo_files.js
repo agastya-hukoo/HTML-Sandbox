@@ -18,8 +18,8 @@ function closePopup() {
     const container = document.getElementById('main-container');
 
     popup.style.display = 'none';
-    document.getElementById('siteFrame').src = '';
-    container.classList.remove('blur-background');
+    document.getElementById('siteFrame').src = ''; // Reset the iframe source
+    container.classList.remove('blur-background'); // Remove blur effect
 }
 
 
