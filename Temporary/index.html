@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sandbox</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: auto;
+        }
+
+        .header {
+            background-image: url('background.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 350px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: height 0.5s ease;
+        }
+
+        .translucent-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            z-index: 1100;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        #main-container {
+            width: 100%;
+        }
+
+        .main-content {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            opacity: 1;
+            transition: opacity 0.5s ease-in;
+        }
+
+        .sidebar, .content {
+            background-color: #262626;
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            flex: 2;
+        }
+
+        .sidebar {
+            flex: 1;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            background-color: #333;
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #444;
+            border-radius: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4da6ff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .welcome-box {
+            background-color: #333;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: #fff;
+        }
+
+        .back-button {
+            display: block;
+            background-color: #4da6ff;
+            color: white;
+            padding: 10px 15px;
+            margin: 10px 0;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #3991cc;
+        }
+
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        input, button {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            background: #333;
+            color: #f0f0f0;
+        }
+
+        button {
+            background-color: #4da6ff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3991cc;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-container">
+        <div class="header">
+            <div class="translucent-box">
+                <p>Your custom text here</p>
+            </div>
+            <h1>View Projects</h1>
+        </div>
+        <div class="welcome-box">
+            Welcome to the Sandbox Repository! Explore the projects and files below.
+        </div>
+        <a href="#" class="back-button" id="backButton" style="display: none;">Back to Root</a>
+        <div class="main-content">
+            <div class="sidebar">
+                <h2>Update Notes</h2>
+                <p>Latest updates and news about the project will be listed here.</p>
+            </div>
+            <div class="content">
+                <ul id="file-list"></ul>
+            </div>
+            <div class="sidebar">
+                <h2>How to Use</h2>
+                <p>Instructions on how to use the repository and its contents.</p>
+            </div>
+        </div>
+    </div>
+    <div id="sitePopup">
+        <div id="popupContent">
+            <iframe id="siteFrame" src="" style="width:100%; height:100%;"></iframe>
+        </div>
+        <button onclick="closePopup()" style="position:absolute; top:10px; right:10px;">Close</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header');
+            const mainContent = document.querySelector('.main-content');
+            const translucentBox = document.querySelector('.translucent-box');
+            let lastScrollTop = 0;
+
+            window.addEventListener('scroll', function() {
+                let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (currentScroll > lastScrollTop) {
+                    // Scrolling down
+                    header.style.height = '350px'; // Original header size
+                    mainContent.classList.add('fade-in');
+                    mainContent.classList.remove('fade-out');
+                    translucentBox.style.display = 'none';
+                } else {
+                    // Scrolling up
+                    header.style.height = '100vh'; // Full viewport height
+                    mainContent.classList.add('fade-out');
+                    mainContent.classList.remove('fade-in');
+                    translucentBox.style.display = 'block';
+                }
+                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Edge
+            }, false);
+        });
+    </script>
+</body>
+</html>
