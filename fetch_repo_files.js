@@ -23,27 +23,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 fileListElement.innerHTML = ''; // Clear current list
 
                 data.forEach(item => {
-                    const listItem = document.createElement('li');
-                    const link = document.createElement('a');
-                    link.textContent = item.name;
+                    // Only display if item is a directory or an HTML file
+                    if (item.type === 'dir' || (item.type === 'file' && item.name.endsWith('.html'))) {
+                        const listItem = document.createElement('li');
+                        const link = document.createElement('a');
+                        link.textContent = item.name;
 
-                    if (item.type === 'dir') {
-                        // If item is a directory, fetch its contents on click
-                        link.href = '#';
-                        link.onclick = () => { fetchFiles(item.path); return false; };
-                    } else if (item.name.endsWith('.html') && item.name !== 'index.html') {
-                        // Open HTML files in the popup iframe instead of navigating away
-                        link.href = 'javascript:void(0);';
-                        link.onclick = () => { openPopup(baseUrl + item.path); };
-                    } else {
-                        // Handle non-HTML files or index.html differently
-                        // For example, you could still navigate away
-                        // Or display a message that the file can't be previewed
-                        link.href = baseUrl + item.path;
+                        if (item.type === 'dir') {
+                            // If item is a directory, fetch its contents on click
+                            link.href = '#';
+                            link.onclick = () => { fetchFiles(item.path); return false; };
+                        } else {
+                            // Open HTML files in the popup iframe instead of navigating away
+                            link.href = 'javascript:void(0);';
+                            link.onclick = () => { openPopup(baseUrl + item.path); };
+                        }
+
+                        listItem.appendChild(link);
+                        fileListElement.appendChild(listItem);
                     }
-
-                    listItem.appendChild(link);
-                    fileListElement.appendChild(listItem);
                 });
             })
             .catch(error => console.error('Error fetching repository data:', error));
