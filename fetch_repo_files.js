@@ -5,11 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function openPopup(url) {
         document.getElementById('siteFrame').src = url;
-        document.getElementById('sitePopup').style.display = 'block';
+        document.getElementById('sitePopup').classList.add('visible');
+        document.body.classList.add('blur-background');
     }
 
     function closePopup() {
-        document.getElementById('sitePopup').style.display = 'none';
+        document.getElementById('sitePopup').classList.remove('visible');
+        document.body.classList.remove('blur-background');
         document.getElementById('siteFrame').src = '';
     }
 
