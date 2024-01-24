@@ -115,33 +115,37 @@
             background-color: #3991cc;
         }
 
-        #sitePopup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1.1);
-            width: 80%;
-            height: 80%;
-            background-color: rgba(0, 0, 0, 0.9);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
+    #sitePopup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 80%;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        display: none;
+    }
+
+    #popupContent {
+        width: 100%;
+        height: 100%;
+        overflow: hidden; /* Ensure no scrollbars */
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
 
         #sitePopup.visible {
             display: block;
             opacity: 1;
             transform: translate(-50%, -50%) scale(1);
-        }
-
-        #popupContent {
-            width: 100%;
-            height: 95%;
-            border: none;
         }
 
         .blur-background {
