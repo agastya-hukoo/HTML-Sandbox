@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const repoOwner = 'agastyahukoo'; // Your GitHub username
-    const repoName = 'HTML-Sandbox'; // Your repository name
-    const baseUrl = `https://${repoOwner}.github.io/${repoName}/`; // Base URL for GitHub Pages
+    const repoOwner = 'agastyahukoo';
+    const repoName = 'HTML-Sandbox';
+    const baseUrl = `https://${repoOwner}.github.io/${repoName}/`;
 
     function openPopup(url) {
         const iframe = document.getElementById('siteFrame');
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const body = document.body;
 
         iframe.src = url;
-        popup.style.display = 'block';
+        popup.classList.add('visible');
         body.classList.add('blur-background');
     }
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const body = document.body;
 
         iframe.src = '';
-        popup.style.display = 'none';
+        popup.classList.remove('visible');
         body.classList.remove('blur-background');
     }
 
