@@ -1,24 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const repoOwner = 'agastyahukoo';
-    const repoName = 'HTML-Sandbox';
-    const baseUrl = `https://${repoOwner}.github.io/${repoName}/`;
+    const repoOwner = 'agastyahukoo'; // Your GitHub username
+    const repoName = 'HTML-Sandbox'; // Your repository name
+    const baseUrl = `https://${repoOwner}.github.io/${repoName}/`; // Base URL for GitHub Pages
 
     function openPopup(url) {
-        document.getElementById('siteFrame').src = url;
-        document.getElementById('sitePopup').classList.add('visible');
-        document.body.classList.add('blur-background');
+        const iframe = document.getElementById('siteFrame');
+        const popup = document.getElementById('sitePopup');
+        const body = document.body;
+
+        iframe.src = url;
+        popup.style.display = 'block';
+        body.classList.add('blur-background');
     }
 
     function closePopup() {
-        document.getElementById('sitePopup').classList.remove('visible');
-        document.body.classList.remove('blur-background');
-        document.getElementById('siteFrame').src = '';
+        const iframe = document.getElementById('siteFrame');
+        const popup = document.getElementById('sitePopup');
+        const body = document.body;
+
+        iframe.src = '';
+        popup.style.display = 'none';
+        body.classList.remove('blur-background');
     }
 
     window.closePopup = closePopup;
 
     function showBackButton(show) {
-        document.getElementById('backButton').style.display = show ? 'block' : 'none';
+        const backButton = document.getElementById('backButton');
+        backButton.style.display = show ? 'block' : 'none';
     }
 
     function fetchFiles(path = '') {
@@ -38,10 +47,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
                         if (item.type === 'dir') {
                             link.href = '#';
-                            link.onclick = () => { fetchFiles(item.path); return false; };
+                            link.onclick = () => {
+                                fetchFiles(item.path); 
+                                return false;
+                            };
                         } else {
                             link.href = 'javascript:void(0);';
-                            link.onclick = () => { openPopup(baseUrl + item.path); };
+                            link.onclick = () => {
+                                openPopup(baseUrl + item.path);
+                            };
                         }
 
                         listItem.appendChild(link);
@@ -51,7 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => console.error('Error fetching repository data:', error));
 
-        document.getElementById('backButton').onclick = () => {
+        const backButton = document.getElementById('backButton');
+        backButton.onclick = () => {
             const lastSlashIndex = path.lastIndexOf('/');
             if (lastSlashIndex !== -1) {
                 fetchFiles(path.substring(0, lastSlashIndex));
@@ -62,5 +77,5 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    fetchFiles();
+    fetchFiles(); // Fetch root directory files on load
 });
