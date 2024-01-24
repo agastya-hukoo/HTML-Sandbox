@@ -16,25 +16,29 @@
             background-color: #1a1a1a; /* Dark background for the body */
             color: #f0f0f0; /* Light grey text for contrast */
             line-height: 1.6;
-            margin: 0;
         }
 
         .header {
-            background-image: url('wallpaper.png'); /* Background image strip */
+            background-image: url('wallpaper.png'); /* Background image for the header */
             background-size: cover;
             background-repeat: no-repeat;
-            height: 150px; /* Adjust height as needed */
+            height: 250px; /* Increased height for the header strip */
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         h1 {
-            text-align: center;
             color: #fff; /* White color for heading */
-            padding-top: 50px; /* Adjust as needed for alignment */
+            font-size: 2.5em; /* Larger font size for the title */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
         }
 
         .content {
             padding: 20px;
+            max-width: 800px; /* Max width for content */
+            margin: 0 auto; /* Centering content */
         }
 
         ul {
@@ -83,9 +87,9 @@
             margin: 10px 0;
             border-radius: 4px;
             border: 1px solid #333;
-            width: 100%;
             background: #333;
             color: #f0f0f0;
+            width: 100%;
         }
 
         button {
