@@ -46,8 +46,6 @@
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        let particlesJSInstance;
-
         particlesJS("particles-js", {
             particles: {
                 number: {
@@ -115,7 +113,7 @@
                     },
                     onclick: {
                         enable: true, // Enabling click interaction
-                        mode: "signal"
+                        mode: "push"
                     },
                     resize: true
                 },
@@ -124,22 +122,12 @@
                         distance: 100, // Repulsion distance
                         duration: 0.4
                     },
-                    signal: {
-                        size: 80, // Size of the signal
-                        speed: 2, // Speed of the signal animation
-                        opacity: 0.7, // Opacity of the signal
-                        color: "#ffffff" // Color of the signal
+                    push: {
+                        particles_nb: 4 // Number of particles to push on click
                     }
                 }
             },
             retina_detect: true
-        });
-
-        // Handle mouse click events
-        document.addEventListener('click', () => {
-            if (particlesJSInstance) {
-                particlesJSInstance.fn.modes.pushParticles(1, { pos: { x: event.clientX, y: event.clientY } });
-            }
         });
     </script>
 </body>
