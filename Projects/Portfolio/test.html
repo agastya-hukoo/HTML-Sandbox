@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        color: #fff;
+        background-color: #111;
+    }
+
+    #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .full-screen-section {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #000;
+        text-align: center;
+    }
+
+    .full-screen-section h1 {
+        font-size: 3em;
+    }
+
+    .social-links {
+        margin-top: 20px;
+    }
+
+    .social-link {
+        margin: 0 10px;
+        font-size: 2em;
+        color: #fff;
+        transition: color 0.3s;
+    }
+
+    .social-link:hover {
+        color: #bbb;
+    }
+
+    .content-section {
+        padding: 50px 0;
+        background-color: #222;
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+    }
+
+    .content-section.hidden {
+        opacity: 0;
+    }
+
+    .content-section.visible {
+        opacity: 1;
+    }
+
+    .video-container {
+        margin-top: 20px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 10px;
+        background: #000;
+        color: #fff;
+    }
+
+    .typing-cursor {
+        font-weight: bold;
+        color: #fff;
+        animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+</style>
+
+<section id="home" class="full-screen-section">
+    <div id="particles-js"></div>
+    <div class="content">
+        <h1><span id="typing"></span></h1>
+        <div class="social-links">
+            <a href="https://leetcode.com/agastyahukoo/" class="social-link"><i class="fas fa-code"></i></a>
+            <a href="https://github.com/agastyahukoo" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.youtube.com/channel/UCIJBSQ_IzTNmpreVTqu5Yow" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/agastyahukoo/" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</section>
+
+<section id="second-section" class="content-section hidden">
+    <div class="content">
+        <h2>Title of Your Second Section</h2>
+        <p>This is some paragraph text for your second section. You can describe your projects, interests, or anything else relevant here.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/SBvSOrjzR7k" title="1. Two Sum (Leet Code)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2024 Your Name</p>
+</footer>
+
+<script>
+    function typeWriter(element, text, speed) {
+        let i = 0;
+        function typing() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typing, speed);
+            }
+        }
+        typing();
+    }
+
+    window.onload = function() {
+        const typingElement = document.getElementById('typing');
+        if (typingElement) {
+            typeWriter(typingElement, "Your Name", 150);
+        }
+    };
+
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        );
+    }
+
+    document.addEventListener('scroll', function() {
+        const secondSection = document.getElementById('second-section');
+        if (isInViewport(secondSection)) {
+            secondSection.classList.add('visible');
+        }
+    });
+
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: '#ffffff' },
+            shape: {
+                type: 'circle',
+                stroke: { width: 0, color: '#000000' },
+                polygon: { nb_sides: 5 },
+                image: { src: 'img/github.svg', width: 100, height: 100 }
+            },
+            opacity: {
+                value: 0.5,
+                random: false,
+                anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+            },
+            size: {
+                value: 3,
+                random: true,
+                anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: '#ffffff',
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 6,
+                direction: 'none',
+                random: false,
+                straight: false,
+                out_mode: 'out',
+                bounce: false,
+                attract: { enable: false, rotateX: 600, rotateY: 1200 }
+            }
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+                onhover: { enable: true, mode: 'repulse' },
+                onclick: { enable: true, mode: 'push' },
+                resize: true
+            },
+            modes: {
+                grab: { distance: 140, line_linked: { opacity: 1 } },
+                bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                repulse: { distance: 200, duration: 0.4 },
+                push: { particles_nb: 4 },
+                remove: { particles_nb: 2 }
+            }
+        },
+        retina_detect: true
+    });
+</script>
+
+</body>
+</html>
