@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galaxy and Nebula Particle Background</title>
+    <title>Interactive Galaxy and Nebula Background</title>
     <style>
         body {
             margin: 0;
@@ -40,12 +40,14 @@
 <body>
     <div id="particles-js"></div>
     <div id="content">
-        <h1>Galaxy and Nebula Particle Background</h1>
-        <p>Explore the cosmic wonders.</p>
+        <h1>Interactive Galaxy and Nebula Background</h1>
+        <p>Click your mouse to create colorful signals.</p>
     </div>
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
+        let particlesJSInstance;
+
         particlesJS("particles-js", {
             particles: {
                 number: {
@@ -112,7 +114,8 @@
                         mode: "repulse" // Interaction on hover with repulsion effect
                     },
                     onclick: {
-                        enable: true, // Disabling click interaction
+                        enable: true, // Enabling click interaction
+                        mode: "signal"
                     },
                     resize: true
                 },
@@ -120,10 +123,23 @@
                     repulse: {
                         distance: 100, // Repulsion distance
                         duration: 0.4
+                    },
+                    signal: {
+                        size: 80, // Size of the signal
+                        speed: 2, // Speed of the signal animation
+                        opacity: 0.7, // Opacity of the signal
+                        color: "#ffffff" // Color of the signal
                     }
                 }
             },
             retina_detect: true
+        });
+
+        // Handle mouse click events
+        document.addEventListener('click', () => {
+            if (particlesJSInstance) {
+                particlesJSInstance.fn.modes.pushParticles(1, { pos: { x: event.clientX, y: event.clientY } });
+            }
         });
     </script>
 </body>
