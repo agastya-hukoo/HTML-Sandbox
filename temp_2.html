@@ -4,15 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agastya Hukoo's Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
 <style>
   body, html {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: #e0e0e0; /* Light text for readability */
     overflow: hidden;
+    background: #121212; /* Ensures no glow effect */
   }
 
   .bg {
@@ -42,7 +43,8 @@
     backdrop-filter: blur(5px);
     padding: 20px;
     border-radius: 10px;
-    max-width: 90%; /* Adjust for better responsiveness */
+    width: 50%; /* Adjust width */
+    max-width: 600px; /* Maximum width */
     box-sizing: border-box;
     z-index: 1;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -54,16 +56,18 @@
 
   .centered-box .badges a {
     display: inline-block; /* Badges side by side */
-    margin: 0 2px; /* Spacing between badges */
+    margin: 0 5px; /* Spacing between badges */
   }
 
-  .centered-box h1, .centered-box h2 {
+  .centered-box h1, .centered-box h2, .centered-box h3, .centered-box h4, .centered-box p, .centered-box li {
     color: #ffffff;
     font-weight: normal; /* Removes bold styling */
   }
 
-  .centered-box h3, .centered-box h4, .centered-box p, .centered-box li {
-    color: #e0e0e0;
+  /* Custom fonts for titles */
+  .centered-box h1, .centered-box h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; /* Normal weight, but using Roboto for a different style */
   }
 </style>
 </head>
@@ -73,7 +77,7 @@
 
 <div class="content">
   <div class="centered-box">
-    <!-- README Content (Adjusted for Dark Theme and Requests) -->
+    <!-- README Content Adjusted for Requests -->
     <div align="center">
       <img src="https://avatars.githubusercontent.com/u/136306593?v=4" width="200" height="200" style="border-radius:50%">
       <h1>Agastya Hukoo</h1>
@@ -99,7 +103,6 @@
       </a>
     </p>
 
-    <!-- About Me Section -->
     <div>
       <h2>About Me</h2>
       <p>Hello, I'm Agastya, a high school student with a profound passion for programming and an ambition to excel in competitive programming. My journey began with Java and has since expanded to mastering C# and diving deep into the world of front-end development.</p>
