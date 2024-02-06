@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website with Background Image and Centered Box</title>
+<title>Agastya Hukoo's Portfolio</title>
 <style>
   body, html {
     height: 100%;
@@ -11,8 +11,7 @@
   }
   
   .bg {
-    /* Use your own image URL here */
-    background-image: url('background_new.png');
+    background-image: url('your-background-image-url.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,17 +23,29 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.5); /* Adjust color and opacity */
-    backdrop-filter: blur(5px); /* Adjust blur level */
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
     padding: 20px;
     border-radius: 10px;
-    width: 300px; /* Adjust width as needed */
+    width: auto; /* Adjusted to auto for content fit */
+    max-width: 80%; /* Ensure box doesn't get too wide on large screens */
+    box-sizing: border-box; /* Ensures padding is included in width */
+    overflow: hidden; /* Keeps content within the box */
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
 
-  .centered-box h1 {
+  .centered-box img, .centered-box a {
+    display: block;
+    margin: auto;
+  }
+
+  .centered-box .badges, .centered-box .skills, .centered-box .featured-projects, .centered-box .professional-experience, .centered-box .educational-journey {
     text-align: center;
-    color: #333; /* Adjust text color as needed */
+    margin-top: 20px;
+  }
+
+  .centered-box table {
+    margin: 20px auto;
   }
 </style>
 </head>
@@ -42,8 +53,71 @@
 
 <div class="bg">
   <div class="centered-box">
-    <h1>Your Text Here</h1>
-    <p>More content can be added here, adjust styling as needed.</p>
+    <!-- README Content Starts Here -->
+    <div align="center">
+      <img src="https://avatars.githubusercontent.com/u/136306593?v=4" width="200" height="200" style="border-radius:50%">
+      <h1>Agastya Hukoo</h1>
+      <h3>Competitive Programmer | Java & C# Enthusiast | Front-End Developer</h3>
+    </div>
+
+    <p align="center">
+      <!-- Social Icons -->
+      <a href="https://youtube.com/@Agastya-Hukoo">
+        <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+      </a>
+      <a href="https://twitter.com/agastyahukoo">
+        <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" />
+      </a>
+      <a href="https://instagram.com/agastyahukoo">
+        <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
+      </a>
+      <a href="https://leetcode.com/agastyahukoo">
+        <img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" />
+      </a>
+      <a href="https://www.codechef.com/users/agastya_hukoo">
+        <img src="https://img.shields.io/badge/CodeChef-5B4638?style=for-the-badge&logo=codechef&logoColor=white" />
+      </a>
+    </p>
+
+    <!-- About Me -->
+    <div align="justify">
+      <h2>About Me</h2>
+      Hello, I'm Agastya, a high school student with a profound passion for programming and an ambition to excel in competitive programming...
+    </div>
+
+    <!-- Skills Showcase -->
+    <div align="center">
+      <h2>Skills Showcase</h2>
+      <img src="https://img.shields.io/badge/-Java-007396?style=flat&logo=java&logoColor=white" />
+      <!-- More Skills -->
+    </div>
+
+    <!-- Featured Projects -->
+    <div align="center">
+      <h2>Featured Projects</h2>
+      <details>
+        <summary><b>Carbon - The Frontend Innovator 🚀</b></summary>
+        <p>Carbon redefines the frontend development experience...</p>
+      </details>
+      <!-- More Projects -->
+    </div>
+
+    <!-- Professional Experience -->
+    <h2>Professional Experience</h2>
+    <ul>
+      <li>Front End Web Developer (3 months) - Transformed web interfaces...</li>
+    </ul>
+
+    <!-- Educational Journey -->
+    <div align="center">
+      <h2>Educational Journey</h2>
+      📖 Currently exploring computer science topics in high school...
+    </div>
+
+    <div align="center">
+      <h4>"Coding with Passion, Innovating for Tomorrow"</h4>
+    </div>
+    <!-- README Content Ends Here -->
   </div>
 </div>
 
