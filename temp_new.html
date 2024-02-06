@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background-color: #111;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: -1;
+        }
+
+        .full-screen-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent; /* Updated to transparent to show particles background */
+            text-align: center;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-link {
+            margin: 0 10px;
+            font-size: 2em;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: #bbb;
+        }
+
+        .content-section {
+            padding: 50px 0;
+            background-color: #222;
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            min-height: 100vh;
+        }
+
+        .content-section.hidden {
+            opacity: 0;
+        }
+
+        .content-section.visible {
+            opacity: 1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #000;
+            color: #fff;
+        }
+
+        .typing-cursor {
+            font-weight: bold;
+            color: #fff;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<section id="home" class="full-screen-section">
+    <div id="particles-js"></div>
+    <div class="content">
+        <h1><span id="typing"></span></h1>
+        <div class="social-links">
+            <a href="https://leetcode.com/agastyahukoo/" class="social-link"><i class="fas fa-code"></i></a>
+            <a href="https://github.com/agastyahukoo" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.youtube.com/channel/UCIJBSQ_IzTNmpreVTqu5Yow" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/agastyahukoo/" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- Additional sections and footer here -->
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    // Configure particlesJS by combining the settings from the second site
+    particlesJS("particles-js", {
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: "#ffffff"
+            },
+            shape: {
+                type: "circle",
+                stroke: {
+                    width: 0,
+                    color: "#000000"
+                },
+                polygon: {
+                    nb_sides: 5
+                }
+            },
+            opacity: {
+                value: 0.5,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 1,
+                    opacity_min: 0.1,
+                    sync: false
+                }
+            },
+            size: {
+                value: 5,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 3,
+                    size_min: 0.1,
+                    sync: false
+                }
+            },
+            line_linked: {
+                enable_auto: true,
+                distance: 100,
+                color: "#ffffff",
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 1,
+                direction: "none",
+                random: true,
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+                attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200
+                }
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: "repulse"
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 400,
+                    line_linked: {
+                        opacity: 1
+                    }
+                },
+                bubble: {
+                    distance: 400,
+                    size: 40,
+                    duration: 2,
+                    opacity: 8,
+                    speed: 3
+                },
+                repulse: {
+                    distance: 200,
+                    duration: 0.4
+                },
+                push: {
+                    particles_nb: 4
+                },
+                remove: {
+                    particles_nb: 2
+                }
+            }
+        },
+        retina_detect: true
+    });
+
+    // Existing script from the first website for typewriter effect and content visibility
+    function typeWriter(element, text, speed) {
+        let i = 0;
+        function typing() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typing, speed);
+            }
+        }
+        typing();
+    }
+
+    window.onload = function() {
+        const typingElement = document.getElementById('typing');
+        if (typingElement) {
+            typeWriter(typingElement, "Your Name", 150);
+        }
+    };
+
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        );
+    }
+
+    function handleScroll() {
+        const secondSection = document.getElementById('second-section');
+        if (isInViewport(secondSection)) {
+            secondSection.classList.add('visible');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        handleScroll();
+        window.addEventListener('scroll', handleScroll);
+    });
+</script>
+
+</body>
+</html>
