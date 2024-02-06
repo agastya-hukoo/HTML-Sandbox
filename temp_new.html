@@ -3,132 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>My Digital Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> <!-- Font Awesome for icons -->
     <style>
-        body, html {
+        body {
             margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #fff;
-            background-color: #111;
-            overflow: hidden; /* Prevents scrollbars */
+            overflow: hidden;
+            font-family: Arial, sans-serif;
         }
 
         #particles-js {
-            position: fixed; /* Changed to fixed to ensure full coverage */
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: -1;
+        }
+
+        #content {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-        }
-
-        .full-screen-section {
-            position: relative;
-            height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            text-align: center;
-            z-index: 1; /* Ensures content is above the particles */
+            align-items: center;
+            color: #fff;
         }
 
-        .full-screen-section h1 {
-            margin: 0;
-            font-size: 4em; /* Increased size for impact */
-            font-weight: 700; /* Bolder font for readability */
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Adds depth */
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 20px;
         }
 
         .social-links {
-            margin-top: 20px;
+            display: flex;
+            list-style: none;
+            padding: 0;
         }
 
-        .social-link {
-            margin: 0 15px; /* Increased spacing */
-            font-size: 2.5em; /* Larger icons */
-            color: #fff;
-            transition: transform 0.3s, color 0.3s; /* Smooth transformation */
+        .social-links li {
+            margin: 0 10px;
         }
 
-        .social-link:hover {
-            color: #bbb;
-            transform: scale(1.1); /* Slight increase */
-        }
-
-        .content-section {
-            padding: 60px 0;
-            background-color: #222;
-            width: 90%; /* Slightly increased width */
-            margin: 100px auto 0; /* Ensure separation and centered */
-            text-align: center;
-            border-radius: 8px; /* Soft rounded corners */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Adds depth */
-            transition: opacity 2s ease-in-out;
-            opacity: 1; /* Initially visible */
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #000;
-            color: #fff;
-            margin-top: 50px; /* Ensures spacing from content */
-            font-size: 1.2em;
-            box-shadow: 0 -2px 4px rgba(0,0,0,0.3); /* Adds depth */
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
+        .social-links a {
+            color: white;
+            font-size: 24px;
         }
     </style>
 </head>
 <body>
-
-<section id="home" class="full-screen-section">
     <div id="particles-js"></div>
-    <div class="content">
-        <h1><span id="typing"></span></h1>
-        <div class="social-links">
-            <a href="https://leetcode.com/agastyahukoo/" class="social-link"><i class="fas fa-code"></i></a>
-            <a href="https://github.com/agastyahukoo" class="social-link"><i class="fab fa-github"></i></a>
-            <a href="https://www.youtube.com/channel/UCIJBSQ_IzTNmpreVTqu5Yow" class="social-link"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/agastyahukoo/" class="social-link"><i class="fab fa-instagram"></i></a>
-        </div>
+    <div id="content">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Explore my projects and connect with me on my social media platforms.</p>
+        <ul class="social-links">
+            <li><a href="https://youtube.com/yourchannel" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+            <li><a href="https://instagram.com/yourusername" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/yourusername" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.codechef.com/users/yourusername" target="_blank" title="CodeChef"><i class="fas fa-code"></i></a></li>
+            <li><a href="https://leetcode.com/yourusername" target="_blank" title="LeetCode"><i class="fas fa-laptop-code"></i></a></li>
+        </ul>
     </div>
-</section>
-
-<!-- Additional sections and footer here -->
-
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-    particlesJS("particles-js", {
-        /* Particles configuration */
-    });
-
-    function typeWriter(element, text, speed) {
-        let i = 0;
-        function typing() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typing, speed);
-            }
-        }
-        typing();
-    }
-
-    window.onload = function() {
-        const typingElement = document.getElementById('typing');
-        if (typingElement) {
-            typeWriter(typingElement, "Your Name", 150);
-        }
-    };
-</script>
-
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#ffffff"
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 5,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 3,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable_auto: true,
+                    distance: 100,
+                    color: "#ffffff",
+                    opacity: 0.4,
+                    width: 1,
+                    condensed_mode: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 600
+                    }
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
 </body>
 </html>
