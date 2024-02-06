@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website with Background Image and Centered Box</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .bg {
+    /* Use your own image URL here */
+    background-image: url('background_new.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+  }
+
+  .centered-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust color and opacity */
+    backdrop-filter: blur(5px); /* Adjust blur level */
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px; /* Adjust width as needed */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .centered-box h1 {
+    text-align: center;
+    color: #333; /* Adjust text color as needed */
+  }
+</style>
+</head>
+<body>
+
+<div class="bg">
+  <div class="centered-box">
+    <h1>Your Text Here</h1>
+    <p>More content can be added here, adjust styling as needed.</p>
+  </div>
+</div>
+
+</body>
+</html>
