@@ -1,16 +1,15 @@
-async function fetchStockData(symbol) {
-    const response = await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?range=1mo&interval=1d`);
+async function fetchStockData(symbol, range) {
+    const response = await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?range=${range}&interval=1d`);
     const data = await response.json();
     return data.chart.result[0].indicators.quote[0].close;
 }
 
-async function renderChart() {
-    const stockSymbol = 'AAPL'; // Example stock symbol
-    const stockData = await fetchStockData(stockSymbol);
+async function renderChart(symbol, range) {
+    const stockData = await fetchStockData(symbol, range);
 
     const options = {
         series: [{
-            name: `${stockSymbol} Stock Price`,
+            name: `${symbol} Stock Price`,
             data: stockData
         }],
         chart: {
@@ -20,7 +19,7 @@ async function renderChart() {
             background: '#121212',
         },
         title: {
-            text: `${stockSymbol} Stock Price (Last Month)`,
+            text: `${symbol} Stock Price (Last ${range})`,
             align: 'center',
             style: {
                 color: '#fff',
@@ -43,8 +42,16 @@ async function renderChart() {
         }
     };
 
-    const chart = new ApexCharts(document.querySelector("#chart"), options);
+    const chartElement = document.querySelector("#chart");
+    chartElement.innerHTML = ''; // Clear the previous chart
+    const chart = new ApexCharts(chartElement, options);
     chart.render();
 }
 
-renderChart();
+document.getElementById('update').addEventListener('click', () => {
+    const symbol = document.getElementById('symbol').value;
+    const range = document.getElementById('range').value;
+    renderChart(symbol, range);
+});
+
+renderChart('AAPL', '1mo'); // Initial chart
