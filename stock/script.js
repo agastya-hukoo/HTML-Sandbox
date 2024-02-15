@@ -38,15 +38,27 @@ async function renderChart(symbol, range) {
         }],
         chart: {
             type: 'line',
-            height: 350,
+            height: 500, // Increased height
             foreColor: '#fff',
             background: '#121212',
+            toolbar: {
+                show: false // Hides the toolbar
+            }
+        },
+        stroke: {
+            curve: 'smooth',
+            width: 3,
+            colors: ['#4CAF50'] // Change the line color
+        },
+        grid: {
+            borderColor: '#444'
         },
         title: {
             text: `${symbol} Stock Price (Last ${range})`,
             align: 'center',
             style: {
                 color: '#fff',
+                fontSize: '20px'
             }
         },
         xaxis: {
@@ -71,6 +83,7 @@ async function renderChart(symbol, range) {
     const chart = new ApexCharts(chartElement, options);
     chart.render();
 }
+
 
 document.getElementById('update').addEventListener('click', () => {
     const symbol = document.getElementById('symbol').value;
