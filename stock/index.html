@@ -1,29 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Price Graphs</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Stock Price Graphs</h1>
-        <div class="controls">
-            <label for="symbol">Symbol:</label>
-            <input type="text" id="symbol" value="AAPL">
-            <label for="range">Time Range:</label>
-            <select id="range">
-                <option value="1mo">1 Month</option>
-                <option value="3mo">3 Months</option>
-                <option value="6mo">6 Months</option>
-                <option value="1y">1 Year</option>
-            </select>
-            <button id="update">Update</button>
+<div class="container">
+    <h1>Stock Price Graphs</h1>
+    <div class="content">
+        <div class="chart-container">
+            <div id="chart"></div>
         </div>
-        <div id="chart"></div>
+        <div class="info-container">
+            <div class="controls">
+                <label for="symbol">Symbol:</label>
+                <input type="text" id="symbol" value="AAPL">
+                <label for="range">Time Range:</label>
+                <select id="range">
+                    <option value="1mo">1 Month</option>
+                    <option value="3mo">3 Months</option>
+                    <option value="6mo">6 Months</option>
+                    <option value="1y">1 Year</option>
+                </select>
+                <button id="update">Update</button>
+            </div>
+            <div class="info-box">
+                <p>Welcome to the Stock Price Graphs website. Here you can view the historical stock prices of various companies. Use the controls to select a different company or time range.</p>
+            </div>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+</div>
