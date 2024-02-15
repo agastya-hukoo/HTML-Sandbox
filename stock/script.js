@@ -1,10 +1,10 @@
 async function fetchStockData(symbol, range) {
-    const response = await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?range=${range}&interval=1d`);
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const apiUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?range=${range}&interval=1d`;
+    const response = await fetch(proxyUrl + apiUrl);
     const data = await response.json();
-    console.log(data); // Log the response data to check if it's correct
     return data.chart.result[0].indicators.quote[0].close;
 }
-
 
 async function renderChart(symbol, range) {
     const stockData = await fetchStockData(symbol, range);
