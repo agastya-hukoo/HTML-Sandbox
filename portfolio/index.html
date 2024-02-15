@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kouzan+Brush+Font&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
-
     <style>
         body, html {
             margin: 0;
@@ -17,6 +16,9 @@
             height: 100%;
             background-color: #000;
             color: #fff;
+        }
+        .content-wrapper {
+            overflow: hidden;
         }
         .full-screen {
             height: 100vh;
@@ -32,9 +34,8 @@
             writing-mode: vertical-rl;
             font-size: 4em;
             font-family: 'Sawarabi Mincho', serif;
-            line-height: 0.9em; /* Adjust this value as needed */
+            line-height: 0.9em;
         }
-
         .portfolio-section {
             font-family: 'Noto Sans JP', sans-serif;
         }
@@ -86,39 +87,41 @@
             padding: 20px;
             text-align: center;
         }
-        .blur-background {
+        .blur-background .content-wrapper {
             filter: blur(8px);
         }
     </style>
 </head>
 <body id="main-container">
-    <section id="title" class="full-screen title-section">
-        <h1 class="vertical-title">マディ</h1>
-    </section>
-    <section id="portfolio" class="full-screen portfolio-section">
-        <div class="portfolio-grid">
-            <div class="portfolio-item" onclick="openPopup(0)">
-                <img src="path/to/artwork1.jpg" alt="Album 1">
-                <h3>Album 1</h3>
+    <div class="content-wrapper">
+        <section id="title" class="full-screen title-section">
+            <h1 class="vertical-title">マディ</h1>
+        </section>
+        <section id="portfolio" class="full-screen portfolio-section">
+            <div class="portfolio-grid">
+                <div class="portfolio-item" onclick="openPopup(0)">
+                    <img src="path/to/artwork1.jpg" alt="Album 1">
+                    <h3>Album 1</h3>
+                </div>
+                <div class="portfolio-item" onclick="openPopup(1)">
+                    <img src="path/to/artwork2.jpg" alt="Album 2">
+                    <h3>Album 2</h3>
+                </div>
+                <div class="portfolio-item" onclick="openPopup(2)">
+                    <img src="path/to/artwork3.jpg" alt="Album 3">
+                    <h3>Album 3</h3>
+                </div>
+                <div class="portfolio-item" onclick="openPopup(3)">
+                    <img src="path/to/artwork4.jpg" alt="Album 4">
+                    <h3>Album 4</h3>
+                </div>
+                <div class="portfolio-item" onclick="openPopup(4)">
+                    <img src="Oasis.webp" alt="As Leaves Fall, So Do Our Memories Unfold">
+                    <h3>As Leaves Fall, So Do Our Memories Unfold</h3>
+                </div>
             </div>
-            <div class="portfolio-item" onclick="openPopup(1)">
-                <img src="path/to/artwork2.jpg" alt="Album 2">
-                <h3>Album 2</h3>
-            </div>
-            <div class="portfolio-item" onclick="openPopup(2)">
-                <img src="path/to/artwork3.jpg" alt="Album 3">
-                <h3>Album 3</h3>
-            </div>
-            <div class="portfolio-item" onclick="openPopup(3)">
-                <img src="path/to/artwork4.jpg" alt="Album 4">
-                <h3>Album 4</h3>
-            </div>
-            <div class="portfolio-item" onclick="openPopup(4)">
-                <img src="Oasis.webp" alt="As Leaves Fall, So Do Our Memories Unfold">
-                <h3>As Leaves Fall, So Do Our Memories Unfold</h3>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
     <div id="popup">
         <div class="slideshow-container"></div>
     </div>
