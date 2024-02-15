@@ -16,10 +16,16 @@ async function fetchStockData(symbol, range) {
 
     const timeSeries = data[timeSeriesKey];
     const dates = Object.keys(timeSeries);
-    const closingPrices = dates.map(date => parseFloat(timeSeries[date]['4. close']));
+    const formattedData = dates.map(date => {
+        return {
+            x: new Date(date),
+            y: parseFloat(timeSeries[date]['4. close'])
+        };
+    });
 
-    return closingPrices;
+    return formattedData;
 }
+
 
 
 async function renderChart(symbol, range) {
