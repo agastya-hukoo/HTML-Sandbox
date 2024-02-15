@@ -5,25 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio of a Freelance Graphic Designer and Digital Artist. Showcasing creative designs and digital art.">
     <title>Graphic Designer & Digital Artist Portfolio</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+            height: 100%;
+            background-color: #000;
+            color: #fff;
+        }
+        .full-screen {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .title-section {
+            background: url('path/to/background-image.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        .vertical-title {
+            writing-mode: vertical-rl;
+            font-size: 3em;
+            font-family: 'Shadows Into Light', cursive;
+        }
+        .portfolio-section {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .portfolio-item {
+            text-align: center;
+            cursor: pointer;
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+        }
+        #popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2;
+        }
+        #popup .slideshow-container {
+            position: relative;
+            width: 80%;
+            height: 80%;
+            margin: auto;
+            top: 10%;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+        }
+        .text {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        .blur-background {
+            filter: blur(8px);
+        }
+    </style>
 </head>
-<body>
+<body id="main-container">
     <section id="title" class="full-screen title-section">
         <h1 class="vertical-title">デザイナー</h1>
     </section>
-
     <section id="portfolio" class="full-screen portfolio-section">
         <div class="portfolio-grid">
-            <div class="portfolio-item">
+            <div class="portfolio-item" onclick="openPopup(0)">
                 <img src="path/to/artwork1.jpg" alt="Artwork 1">
                 <h3>Project Title 1</h3>
                 <p>Description of Project 1</p>
             </div>
-            <!-- Add more portfolio items here -->
         </div>
     </section>
-
-    <script src="script.js"></script>
+    <div id="popup">
+        <div class="slideshow-container"></div>
+    </div>
+    <script>
+        let slideIndex = 0;
+        const albums = [
+            {
+                title: "Album 1",
+                images: [
+                    { src: "path/to/image1.jpg", description: "Image 1 Description" },
+                    { src: "path/to/image2.jpg", description: "Image 2 Description" }
+                ]
+            }
+        ];
+        function openPopup(albumIndex) {
+            const album = albums[albumIndex];
+            const container = document.getElementById('main-container');
+            const popup = document.getElementById('popup');
+            const slideshowContainer = popup.querySelector('.slideshow-container');
+            slideshowContainer.innerHTML = album.images.map((image, index) => `
+                <div class="slide fade">
+                    <img src="${image.src}" alt="${album.title} Image ${index + 1}">
+                    <div class="text">${image.description}</div>
+                </div>
+            `).join('');
+            popup.style.display = 'block';
+            container.classList.add('blur-background');
+            showSlides(slideIndex = 0);
+        }
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            const container = document.getElementById('main-container');
+            popup.style.display = 'none';
+            container.classList.remove('blur-background');
+        }
+        function showSlides(n) {
+            const slides = document.getElementsByClassName("slide");
+            if (n >= slides.length) slideIndex = 0;
+            if (n < 0) slideIndex = slides.length - 1;
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+            setTimeout(() => showSlides(slideIndex += 1), 5000);
+        }
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('popup')) {
+                closePopup();
+            }
+        }
+    </script>
 </body>
 </html>
