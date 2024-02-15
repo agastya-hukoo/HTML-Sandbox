@@ -16,31 +16,44 @@ body {
 h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.chart-container {
+    width: 60%;
+}
+
+.info-container {
+    width: 38%;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .controls {
-    margin-bottom: 20px;
+    text-align: left;
 }
 
-label {
+.label {
     font-size: 1.2em;
     margin-right: 10px;
 }
 
-input[type="text"] {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
+input[type="text"],
 select {
     padding: 10px;
     border: none;
     border-radius: 5px;
     font-size: 1em;
-    background-color: #fff;
-    color: #333;
+    margin-bottom: 10px;
 }
 
 button {
@@ -52,10 +65,18 @@ button {
     background-color: #4CAF50;
     color: #fff;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 button:hover {
     background-color: #45a049;
+}
+
+.info-box {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 1em;
+    line-height: 1.6;
 }
 
 #chart {
