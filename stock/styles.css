@@ -36,12 +36,13 @@ h1 {
     background-color: #1e1e1e;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #ccc; /* Lighter text color */
-    font-size: 16px; /* Increased font size */
+    color: #ccc;
+    font-size: 16px;
 }
 
 .controls {
-    margin-bottom: 20px; /* Add space between controls and info box */
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 .label {
@@ -74,11 +75,42 @@ button:hover {
     background-color: #45a049;
 }
 
-.info-box {
+.stock-search {
+    margin-top: 20px;
+}
+
+.stock-search input[type="text"] {
+    width: calc(100% - 60px);
+}
+
+.stock-search button {
+    width: 50px;
+    margin-left: 10px;
+}
+
+.stock-menu {
+    margin-top: 20px;
+    background-color: #2a2a2a;
     padding: 15px;
-    background-color: #2a2a2a; /* Slightly lighter background */
     border-radius: 8px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.stock-menu h3 {
+    margin-top: 0;
+}
+
+.stock-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stock-menu ul li {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #3a3a3a;
+    border-radius: 5px;
 }
 
 #chart {
