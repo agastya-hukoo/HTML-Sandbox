@@ -1,10 +1,26 @@
 async function fetchStockData(symbol, range) {
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    const apiUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?range=${range}&interval=1d`;
-    const response = await fetch(proxyUrl + apiUrl);
+    const apiKey = 'VZ789EXDIOI5GGF5';
+    const functionType = range === '1d' ? 'TIME_SERIES_INTRADAY' : 'TIME_SERIES_DAILY';
+    const interval = range === '1d' ? '&interval=5min' : '';
+    const apiUrl = `https://www.alphavantage.co/query?function=${functionType}&symbol=${symbol}${interval}&apikey=${apiKey}`;
+
+    const response = await fetch(apiUrl);
     const data = await response.json();
-    return data.chart.result[0].indicators.quote[0].close;
+
+    let timeSeriesKey = '';
+    if (range === '1d') {
+        timeSeriesKey = 'Time Series (5min)';
+    } else {
+        timeSeriesKey = 'Time Series (Daily)';
+    }
+
+    const timeSeries = data[timeSeriesKey];
+    const dates = Object.keys(timeSeries);
+    const closingPrices = dates.map(date => parseFloat(timeSeries[date]['4. close']));
+
+    return closingPrices;
 }
+
 
 async function renderChart(symbol, range) {
     const stockData = await fetchStockData(symbol, range);
