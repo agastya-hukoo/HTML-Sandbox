@@ -26,8 +26,6 @@ async function fetchStockData(symbol, range) {
     return formattedData;
 }
 
-
-
 async function renderChart(symbol, range) {
     const stockData = await fetchStockData(symbol, range);
 
@@ -38,17 +36,24 @@ async function renderChart(symbol, range) {
         }],
         chart: {
             type: 'line',
-            height: 500, // Increased height
+            height: 500,
             foreColor: '#fff',
             background: '#121212',
             toolbar: {
-                show: false // Hides the toolbar
+                show: true,
+                tools: {
+                    zoom: true,
+                    zoomin: true,
+                    zoomout: true,
+                    pan: true,
+                    reset: true
+                }
             }
         },
         stroke: {
             curve: 'smooth',
             width: 3,
-            colors: ['#4CAF50'] // Change the line color
+            colors: ['#4CAF50']
         },
         grid: {
             borderColor: '#444'
@@ -84,11 +89,22 @@ async function renderChart(symbol, range) {
     chart.render();
 }
 
-
 document.getElementById('update').addEventListener('click', () => {
     const symbol = document.getElementById('symbol').value;
     const range = document.getElementById('range').value;
     renderChart(symbol, range);
+});
+
+document.getElementById('add-stock').addEventListener('click', () => {
+    const stockInput = document.getElementById('stock-search');
+    const stockSymbol = stockInput.value.trim().toUpperCase();
+    if (stockSymbol) {
+        const selectedStocks = document.getElementById('selected-stocks');
+        const listItem = document.createElement('li');
+        listItem.textContent = stockSymbol;
+        selectedStocks.appendChild(listItem);
+        stockInput.value = ''; // Clear the input field
+    }
 });
 
 renderChart('AAPL', '1mo'); // Initial chart
