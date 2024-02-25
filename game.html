@@ -11,12 +11,13 @@
             align-items: center;
             height: 100vh;
             background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         .board {
             display: grid;
             grid-template-columns: repeat(3, 100px);
-            gap: 10px;
+            gap: 5px;
+            position: relative;
         }
         .cell {
             width: 100px;
@@ -27,33 +28,64 @@
             align-items: center;
             font-size: 32px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-        .cell:hover {
-            background-color: #e0e0e0;
+        .cell::before, .cell::after {
+            content: '';
+            position: absolute;
+            background-color: black;
+            transition: transform 0.3s ease;
+        }
+        .cell::before {
+            width: 5px;
+            height: 100%;
+            left: 50%;
+            transform: scale(0, 1);
+        }
+        .cell::after {
+            height: 5px;
+            width: 100%;
+            top: 50%;
+            transform: scale(1, 0);
         }
         .cell.x, .cell.o {
             pointer-events: none;
         }
-        .cell.x {
-            color: #ff6347;
+        .cell.x::before, .cell.x::after {
+            background-color: #ff6347;
+            transform: scale(1);
         }
-        .cell.o {
-            color: #4caf50;
+        .cell.o::before, .cell.o::after {
+            background-color: #4caf50;
+            transform: rotate(45deg) scale(1);
         }
-        .cell.animate {
-            animation: pop 0.3s ease;
+        .winner-message {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            text-align: center;
         }
-        @keyframes pop {
-            0% {
-                transform: scale(0);
-            }
-            60% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
+        .winner-message.show {
+            display: flex;
+        }
+        .restart-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -68,28 +100,29 @@
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
+        <div class="winner-message" id="winnerMessage">
+            <span id="winnerText"></span>
+            <button class="restart-button" id="restartButton">Restart</button>
+        </div>
     </div>
 
     <script>
         const board = document.getElementById('board');
         const cells = document.querySelectorAll('[data-cell]');
+        const winnerMessageElement = document.getElementById('winnerMessage');
+        const winnerTextElement = document.getElementById('winnerText');
+        const restartButton = document.getElementById('restartButton');
         let isXTurn = true;
 
         const handleClick = (e) => {
             const cell = e.target;
             const classToAdd = isXTurn ? 'x' : 'o';
-            cell.classList.add(classToAdd, 'animate');
+            cell.classList.add(classToAdd);
 
             if (checkWin(classToAdd)) {
-                setTimeout(() => {
-                    alert(`${isXTurn ? 'X' : 'O'} wins!`);
-                    resetGame();
-                }, 300);
+                endGame(false);
             } else if (isDraw()) {
-                setTimeout(() => {
-                    alert('Draw!');
-                    resetGame();
-                }, 300);
+                endGame(true);
             } else {
                 isXTurn = !isXTurn;
             }
@@ -120,16 +153,28 @@
             });
         };
 
+        const endGame = (draw) => {
+            if (draw) {
+                winnerTextElement.innerText = 'Draw!';
+            } else {
+                winnerTextElement.innerText = `${isXTurn ? 'X' : 'O'} Wins!`;
+            }
+            winnerMessageElement.classList.add('show');
+        };
+
         const resetGame = () => {
-            cells.forEach(cell => {
-                cell.classList.remove('x', 'o', 'animate');
-            });
             isXTurn = true;
+            cells.forEach(cell => {
+                cell.classList.remove('x', 'o');
+            });
+            winnerMessageElement.classList.remove('show');
         };
 
         cells.forEach(cell => {
             cell.addEventListener('click', handleClick, { once: true });
         });
+
+        restartButton.addEventListener('click', resetGame);
     </script>
 </body>
 </html>
