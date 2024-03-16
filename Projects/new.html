@@ -59,9 +59,9 @@
     .popup {
         display: none;
         position: absolute;
-        background-color: #fff;
-        padding: 10px;
-        border: 1px solid #ccc;
+        background-color: #333; /* Changed background color */
+        color: white; /* Changed text color */
+        padding: 20px;
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         z-index: 999;
@@ -69,6 +69,32 @@
 
     .popup.show {
         display: block;
+    }
+
+    .fade-in {
+        animation: fadeInSection 1s forwards;
+    }
+
+    .fade-out {
+        animation: fadeOutSection 1s forwards;
+    }
+
+    @keyframes fadeInSection {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOutSection {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
     }
 </style>
 </head>
@@ -109,9 +135,33 @@
             </div>
         </div>
     </section>
+    <audio id="startup-sound">
+        <source src="startup-sound.mp3" type="audio/mpeg">
+    </audio>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        let startupSoundPlayed = false;
         $(document).ready(function() {
+            $(window).scroll(function() {
+                let scrollPos = $(window).scrollTop();
+                let sectionOffset = $('.section:nth-child(2)').offset().top;
+
+                if (scrollPos >= sectionOffset && !startupSoundPlayed) {
+                    $('#startup-sound')[0].play();
+                    startupSoundPlayed = true;
+                }
+
+                $('.section').each(function() {
+                    let top = $(this).offset().top - 200;
+                    let bottom = top + $(this).outerHeight();
+                    if (scrollPos >= top && scrollPos <= bottom) {
+                        $(this).addClass('fade-in').removeClass('fade-out');
+                    } else {
+                        $(this).addClass('fade-out').removeClass('fade-in');
+                    }
+                });
+            });
+
             $('.popup-trigger').click(function() {
                 $('.popup').toggleClass('show');
             });
