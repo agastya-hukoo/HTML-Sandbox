@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon - Your HTML IDE</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .logo {
+            margin-top: 50px;
+        }
+        .download-button {
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .download-button:hover {
+            background-color: #45a049;
+        }
+        .fixed-download-button {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: none;
+        }
+        .fixed-download-button:hover {
+            background-color: #45a049;
+        }
+        .technical-details {
+            margin-top: 50px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .credits {
+            margin-top: 50px;
+        }
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="Carbon Logo">
+        </div>
+        <div class="about">
+            <h2>About Carbon</h2>
+            <p>Your intuitive and beginner-friendly HTML IDE.</p>
+        </div>
+        <div class="supported-devices">
+            <h2>Supported Devices</h2>
+            <p>Windows, macOS, Linux</p>
+        </div>
+        <button class="download-button">Download Carbon</button>
+        <div class="technical-details">
+            <h2>Technical Details</h2>
+            <button onclick="showPopup()">Learn More</button>
+        </div>
+        <div class="credits">
+            <h2>Credits</h2>
+            <p>Developed by Uncommon Code Co.</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Uncommon Code Co. All rights reserved.</p>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <span class="close-button" onclick="closePopup()">&times;</span>
+        <h2>Technical Details</h2>
+        <p>Carbon is built using C#, WinForms, and CefSharp...</p>
+        <a href="https://github.com/yourusername/carbon" target="_blank">View on GitHub</a>
+    </div>
+    <button class="fixed-download-button" onclick="scrollToTop()">Download Carbon</button>
+    <script>
+        window.onscroll = function() {showFixedDownloadButton()};
+        function showFixedDownloadButton() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                document.querySelector('.fixed-download-button').style.display = "block";
+            } else {
+                document.querySelector('.fixed-download-button').style.display = "none";
+            }
+        }
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+</body>
+</html>
