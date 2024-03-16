@@ -44,7 +44,7 @@
         font-size: 24px;
         white-space: nowrap;
         overflow: hidden;
-        border-right: 1px solid white; /* Add a border for the typing effect */
+        border-right: 1px solid white;
         animation: typing 6s steps(40) forwards;
     }
 
@@ -56,6 +56,21 @@
             width: 100%;
         }
     }
+
+    .popup {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+    }
+
+    .popup.show {
+        display: block;
+    }
 </style>
 </head>
 <body>
@@ -64,38 +79,44 @@
         <div class="text">Your Text Here</div>
     </section>
     <section class="section">
-    <h2>About Carbon</h2>
-    <div class="screenshots">
-        <img src="screenshot1.png" alt="Screenshot 1">
-        <img src="screenshot2.png" alt="Screenshot 2">
-        <img src="screenshot3.png" alt="Screenshot 3">
-        <!-- Add more screenshots as needed -->
-    </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique magna eu eros dapibus, eget rutrum felis convallis.</p>
-    <h3>About Me</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique magna eu eros dapibus, eget rutrum felis convallis.</p>
-    <div class="downloads">
-        <a href="#" class="download">Download for Windows x64</a>
-        <a href="#" class="download">Download for Windows ARM64</a>
-        <span class="popup-trigger">*</span>
-        <div class="popup">
-            <p>Minimum Requirements:</p>
-            <ul>
-                <li>Operating System: Windows 10</li>
-                <li>Processor: Intel Core i5</li>
-                <li>RAM: 8GB</li>
-                <li>Storage: 500MB</li>
-            </ul>
-            <p>Recommended Specifications:</p>
-            <ul>
-                <li>Operating System: Windows 11</li>
-                <li>Processor: Intel Core i7</li>
-                <li>RAM: 16GB</li>
-                <li>Storage: 1GB</li>
-            </ul>
+        <h2>About Carbon</h2>
+        <div class="screenshots">
+            <img src="screenshot1.png" alt="Screenshot 1">
+            <img src="screenshot2.png" alt="Screenshot 2">
+            <img src="screenshot3.png" alt="Screenshot 3">
         </div>
-    </div>
-</section>
-
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique magna eu eros dapibus, eget rutrum felis convallis.</p>
+        <h3>About Me</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique magna eu eros dapibus, eget rutrum felis convallis.</p>
+        <div class="downloads">
+            <a href="#" class="download">Download for Windows x64</a>
+            <a href="#" class="download">Download for Windows ARM64</a>
+            <span class="popup-trigger">*</span>
+            <div class="popup">
+                <p>Minimum Requirements:</p>
+                <ul>
+                    <li>Operating System: Windows 10</li>
+                    <li>Processor: Intel Core i5</li>
+                    <li>RAM: 8GB</li>
+                    <li>Storage: 500MB</li>
+                </ul>
+                <p>Recommended Specifications:</p>
+                <ul>
+                    <li>Operating System: Windows 11</li>
+                    <li>Processor: Intel Core i7</li>
+                    <li>RAM: 16GB</li>
+                    <li>Storage: 1GB</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.popup-trigger').click(function() {
+                $('.popup').toggleClass('show');
+            });
+        });
+    </script>
 </body>
 </html>
