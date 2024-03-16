@@ -1,82 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carbon - Your HTML IDE</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        .header {
-            position: relative;
-            height: 100vh;
-            text-align: center;
-            background-color: black;
-            transition: height 0.5s ease-out;
-        }
-        .header.shrink {
-            height: 150px;
-        }
-        .logo {
-            transition: transform 0.5s ease-out;
-        }
-        .header.shrink .logo img {
-            transform: scale(0.5);
-        }
-        .quote {
-            font-style: italic;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Website Title</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+    .section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .logo {
+        max-width: 100%;
+        height: auto;
+        animation: fadeIn 2s forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
             opacity: 0;
-            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-            white-space: nowrap;
-            overflow: hidden;
-            display: inline-block;
         }
-        .about {
-            display: none;
+        to {
+            opacity: 1;
         }
-        .header.shrink + .about {
-            display: block;
-            padding: 20px;
-            background-color: #333;
-            min-height: 100vh;
+    }
+
+    .text {
+        margin-top: 20px;
+        font-size: 24px;
+        animation: typing 3s steps(40) forwards;
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
         }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+        to {
+            width: 100%;
         }
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: white; }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
-    <div class="header" id="header">
-        <div class="logo">
-            <img src="logo.png" alt="Carbon Logo" style="width: 300px;">
-        </div>
-        <div class="quote">"Empowering innovation through open-source learning."</div>
-    </div>
-    <div class="about">
-        <h2>About Carbon</h2>
-        <p>Carbon is an intuitive and beginner-friendly HTML IDE designed to simplify HTML programming. It features a live preview, syntax highlighting, auto-completion, error detection, and more to enhance your coding experience.</p>
-    </div>
-    <script>
-        window.onscroll = function() {
-            var header = document.getElementById("header");
-            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                header.classList.add("shrink");
-            } else {
-                header.classList.remove("shrink");
-            }
-        }
-    </script>
+    <section class="section">
+        <img src="logo.png" alt="Logo" class="logo">
+        <div class="text">Your Text Here</div>
+    </section>
 </body>
 </html>
