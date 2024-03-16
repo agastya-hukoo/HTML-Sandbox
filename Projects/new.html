@@ -42,7 +42,10 @@
     .text {
         margin-top: 20px;
         font-size: 24px;
-        animation: typing 3s steps(40) forwards;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 1px solid white; /* Add a border for the typing effect */
+        animation: typing 6s steps(40) forwards;
     }
 
     @keyframes typing {
