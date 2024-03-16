@@ -5,116 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carbon - Your HTML IDE</title>
     <style>
-        body {
+        body, html {
             margin: 0;
             padding: 0;
             background-color: black;
             color: white;
             font-family: Arial, sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+        .header {
+            position: relative;
+            height: 100vh;
             text-align: center;
+            background-color: black;
+            transition: height 0.5s ease-out;
         }
-        .logo img {
-            max-width: 200px;
+        .header.shrink {
+            height: 150px;
         }
-        .about, .supported-devices, .technical-details, .credits {
-            margin-top: 40px;
+        .logo {
+            transition: transform 0.5s ease-out;
         }
-        .download-button, .fixed-download-button, button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .header.shrink .logo img {
+            transform: scale(0.5);
         }
-        .download-button:hover, .fixed-download-button:hover, button:hover {
-            background-color: #45a049;
+        .quote {
+            font-style: italic;
+            opacity: 0;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
         }
-        .popup {
+        .about {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: white;
-            text-align: center;
-            padding-top: 100px;
         }
-        .close-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 30px;
-            cursor: pointer;
-            color: white;
-        }
-        .footer {
-            margin-top: 40px;
+        .header.shrink + .about {
+            display: block;
             padding: 20px;
             background-color: #333;
+            min-height: 100vh;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="header" id="header">
         <div class="logo">
-            <img src="logo.png" alt="Carbon Logo">
+            <img src="logo.png" alt="Carbon Logo" style="width: 300px;">
         </div>
-        <div class="about">
-            <h2>About Carbon</h2>
-            <p>Carbon is an intuitive and beginner-friendly HTML IDE designed to simplify HTML programming. It features a live preview, syntax highlighting, auto-completion, error detection, and more to enhance your coding experience.</p>
-        </div>
-        <div class="supported-devices">
-            <h2>Supported Devices</h2>
-            <p>Currently available for Windows x64 and ARM. Future support for macOS and Linux is planned.</p>
-        </div>
-        <button class="download-button">Download Carbon</button>
-        <div class="technical-details">
-            <h2>Technical Details</h2>
-            <button onclick="showPopup()">Learn More</button>
-        </div>
-        <div class="credits">
-            <h2>Credits</h2>
-            <p>Developed by Uncommon Code Co., a student-led, nonprofit organization committed to creating innovative software solutions.</p>
-        </div>
-        <div class="footer">
-            <p>&copy; 2024 Uncommon Code Co. All rights reserved.</p>
-        </div>
+        <div class="quote">"Empowering innovation through open-source learning."</div>
     </div>
-    <div class="popup" id="popup">
-        <span class="close-button" onclick="closePopup()">&times;</span>
-        <h2>Technical Details</h2>
-        <p>Carbon is built using C#, WinForms, and CefSharp for a seamless and efficient development experience. It offers a modern and customizable interface, with features like theme customization, file management, and a JavaScript console to cater to both beginners and experienced developers.</p>
-        <a href="https://github.com/yourusername/carbon" target="_blank">View on GitHub</a>
+    <div class="about">
+        <h2>About Carbon</h2>
+        <p>Carbon is an intuitive and beginner-friendly HTML IDE designed to simplify HTML programming. It features a live preview, syntax highlighting, auto-completion, error detection, and more to enhance your coding experience.</p>
     </div>
-    <button class="fixed-download-button" onclick="scrollToTop()">Download Carbon</button>
     <script>
-        window.onscroll = function() {showFixedDownloadButton()};
-        function showFixedDownloadButton() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                document.querySelector('.fixed-download-button').style.display = "block";
+        window.onscroll = function() {
+            var header = document.getElementById("header");
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                header.classList.add("shrink");
             } else {
-                document.querySelector('.fixed-download-button').style.display = "none";
+                header.classList.remove("shrink");
             }
-        }
-        function scrollToTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-        function showPopup() {
-            document.getElementById("popup").style.display = "block";
-        }
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
         }
     </script>
 </body>
