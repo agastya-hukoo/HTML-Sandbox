@@ -2,129 +2,169 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architect Firm</title>
+    <title>Your Architect Portfolio</title>
     <style>
-        /* Add your CSS styles here */
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
             background-color: black;
             color: white;
+            font-family: Arial, sans-serif;
         }
-        header {
-            background-color: transparent;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            top: 50px; /* Adjust based on your header height */
-            z-index: 1000;
-            transition: top 0.3s;
-        }
-        header.hidden {
-            top: -100px; /* Adjust based on your header height */
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline-block;
-            margin-right: 20px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        main {
-            padding-top: 100px; /* Adjust based on your header height */
-        }
-        section#home {
+
+        .section {
             height: 100vh;
-            background-color: #f1f1f1;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-        }
-        section {
-            padding: 50px 20px;
             text-align: center;
-            opacity: 0;
-            transition: opacity 0.5s;
+            overflow: hidden;
         }
-        section.fade-in {
-            opacity: 1;
+
+        .logo {
+            max-width: 100%;
+            height: auto;
+            animation: fadeIn 2s forwards;
         }
-        footer {
-            background-color: black;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-        img.logo {
-            max-width: 200px;
-            margin-bottom: 20px;
+
+        .text {
+            margin-top: 20px;
+            font-size: 24px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 1px solid white;
+            animation: typing 6s steps(40) forwards;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        .popup {
+            display: none;
+            position: absolute;
+            background-color: #333; /* Changed background color */
+            color: white; /* Changed text color */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+        }
+
+        .popup.show {
+            display: block;
+        }
+
+        .fade-in {
+            animation: fadeInSection 1s forwards;
+        }
+
+        .fade-out {
+            animation: fadeOutSection 1s forwards;
+        }
+
+        @keyframes fadeInSection {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOutSection {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="home">
-            <img src="logo.png" alt="Logo" class="logo">
-            <h2>Welcome to Architect Firm</h2>
-        </section>
-        <section id="portfolio">
-            <h2>Portfolio</h2>
-            <p>Temporary content for the portfolio section.</p>
-        </section>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Temporary content for the about section.</p>
-        </section>
-        <section id="services">
-            <h2>Services</h2>
-            <p>Temporary content for the services section.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Temporary content for the contact section.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Architect Firm. All Rights Reserved.</p>
-    </footer>
-
+    <section class="section">
+        <img src="logo.png" alt="Logo" class="logo">
+        <div class="text">Architect Portfolio</div>
+    </section>
+    <section class="section">
+        <h2>About Me</h2>
+        <div class="screenshots">
+            <img src="project1.png" alt="Project 1">
+            <img src="project2.png" alt="Project 2">
+            <img src="project3.png" alt="Project 3">
+        </div>
+        <p>I am a passionate architect with a focus on innovative design and sustainable solutions. My portfolio showcases a variety of projects that demonstrate my creative approach and attention to detail.</p>
+        <h3>Design Philosophy</h3>
+        <p>My design philosophy revolves around creating spaces that not only meet the functional needs of my clients but also inspire and enhance their quality of life. I believe that architecture has the power to shape the way we live and interact with our environment.</p>
+        <div class="downloads">
+            <a href="#" class="download">Download Resume</a>
+            <a href="#" class="download">Download Portfolio</a>
+            <span class="popup-trigger">*</span>
+            <div class="popup">
+                <p>Minimum Requirements:</p>
+                <ul>
+                    <li>Operating System: Windows 10</li>
+                    <li>Processor: Intel Core i5</li>
+                    <li>RAM: 8GB</li>
+                    <li>Storage: 500MB</li>
+                </ul>
+                <p>Recommended Specifications:</p>
+                <ul>
+                    <li>Operating System: Windows 11</li>
+                    <li>Processor: Intel Core i7</li>
+                    <li>RAM: 16GB</li>
+                    <li>Storage: 1GB</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <audio id="startup-sound">
+        <source src="startup-sound.mp3" type="audio/mpeg">
+    </audio>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        let lastScrollTop = 0;
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
-                header.classList.add('hidden');
-            } else {
-                header.classList.remove('hidden');
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        let startupSoundPlayed = false;
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                let scrollPos = $(window).scrollTop();
+                let sectionOffset = $('.section:nth-child(2)').offset().top;
+
+                if (scrollPos >= sectionOffset && !startupSoundPlayed) {
+                    $('#startup-sound')[0].play();
+                    startupSoundPlayed = true;
+                }
+
+                $('.section').each(function() {
+                    let top = $(this).offset().top - 200;
+                    let bottom = top + $(this).outerHeight();
+                    if (scrollPos >= top && scrollPos <= bottom) {
+                        $(this).addClass('fade-in').removeClass('fade-out');
+                    } else {
+                        $(this).addClass('fade-out').removeClass('fade-in');
+                    }
+                });
+            });
+
+            $('.popup-trigger').click(function() {
+                $('.popup').toggleClass('show');
+            });
         });
     </script>
 </body>
