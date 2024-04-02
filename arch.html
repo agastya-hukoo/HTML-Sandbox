@@ -78,7 +78,6 @@
 </head>
 <body>
     <header>
-        <h1>Architect Firm</h1>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -92,7 +91,7 @@
     <main>
         <section id="home">
             <img src="logo.png" alt="Logo" class="logo">
-            <h2>Architect Firm</h2>
+            <h2>Welcome to Architect Firm</h2>
         </section>
         <section id="portfolio">
             <h2>Portfolio</h2>
@@ -117,6 +116,7 @@
 
     <script>
         let lastScrollTop = 0;
+        const header = document.querySelector('header');
         window.addEventListener('scroll', () => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             if (scrollTop > lastScrollTop) {
