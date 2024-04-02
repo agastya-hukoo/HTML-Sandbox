@@ -56,21 +56,6 @@
             }
         }
 
-        .popup {
-            display: none;
-            position: absolute;
-            background-color: #333; /* Changed background color */
-            color: white; /* Changed text color */
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-        }
-
-        .popup.show {
-            display: block;
-        }
-
         .fade-in {
             animation: fadeInSection 1s forwards;
         }
@@ -113,59 +98,6 @@
         <p>I am a passionate architect with a focus on innovative design and sustainable solutions. My portfolio showcases a variety of projects that demonstrate my creative approach and attention to detail.</p>
         <h3>Design Philosophy</h3>
         <p>My design philosophy revolves around creating spaces that not only meet the functional needs of my clients but also inspire and enhance their quality of life. I believe that architecture has the power to shape the way we live and interact with our environment.</p>
-        <div class="downloads">
-            <a href="#" class="download">Download Resume</a>
-            <a href="#" class="download">Download Portfolio</a>
-            <span class="popup-trigger">*</span>
-            <div class="popup">
-                <p>Minimum Requirements:</p>
-                <ul>
-                    <li>Operating System: Windows 10</li>
-                    <li>Processor: Intel Core i5</li>
-                    <li>RAM: 8GB</li>
-                    <li>Storage: 500MB</li>
-                </ul>
-                <p>Recommended Specifications:</p>
-                <ul>
-                    <li>Operating System: Windows 11</li>
-                    <li>Processor: Intel Core i7</li>
-                    <li>RAM: 16GB</li>
-                    <li>Storage: 1GB</li>
-                </ul>
-            </div>
-        </div>
     </section>
-    <audio id="startup-sound">
-        <source src="startup-sound.mp3" type="audio/mpeg">
-    </audio>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        let startupSoundPlayed = false;
-        $(document).ready(function() {
-            $(window).scroll(function() {
-                let scrollPos = $(window).scrollTop();
-                let sectionOffset = $('.section:nth-child(2)').offset().top;
-
-                if (scrollPos >= sectionOffset && !startupSoundPlayed) {
-                    $('#startup-sound')[0].play();
-                    startupSoundPlayed = true;
-                }
-
-                $('.section').each(function() {
-                    let top = $(this).offset().top - 200;
-                    let bottom = top + $(this).outerHeight();
-                    if (scrollPos >= top && scrollPos <= bottom) {
-                        $(this).addClass('fade-in').removeClass('fade-out');
-                    } else {
-                        $(this).addClass('fade-out').removeClass('fade-in');
-                    }
-                });
-            });
-
-            $('.popup-trigger').click(function() {
-                $('.popup').toggleClass('show');
-            });
-        });
-    </script>
 </body>
 </html>
