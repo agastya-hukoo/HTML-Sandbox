@@ -11,9 +11,11 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
         }
         header {
-            background-color: #333;
+            background-color: transparent;
             color: #fff;
             padding: 10px 0;
             text-align: center;
@@ -21,6 +23,10 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: top 0.3s;
+        }
+        header.hidden {
+            top: -60px; /* Adjust based on your header height */
         }
         nav ul {
             list-style-type: none;
@@ -36,7 +42,7 @@
             text-decoration: none;
         }
         main {
-            padding-top: 60px; /* Adjust based on your header height */
+            padding-top: 100px; /* Adjust based on your header height */
         }
         section#home {
             height: 100vh;
@@ -56,13 +62,17 @@
             opacity: 1;
         }
         footer {
-            background-color: #333;
-            color: #fff;
+            background-color: black;
+            color: white;
             text-align: center;
             padding: 20px 0;
             position: fixed;
             width: 100%;
             bottom: 0;
+        }
+        img.logo {
+            max-width: 200px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -81,8 +91,8 @@
     </header>
     <main>
         <section id="home">
-            <h2>Welcome to Architect Firm</h2>
-            <p>Temporary content for the home section.</p>
+            <img src="logo.png" alt="Logo" class="logo">
+            <h2>Architect Firm</h2>
         </section>
         <section id="portfolio">
             <h2>Portfolio</h2>
@@ -106,16 +116,15 @@
     </footer>
 
     <script>
+        let lastScrollTop = 0;
         window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                const distance = section.getBoundingClientRect().top;
-                if (distance < window.innerHeight * 0.75 && distance > -window.innerHeight * 0.25) {
-                    section.classList.add('fade-in');
-                } else {
-                    section.classList.remove('fade-in');
-                }
-            });
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
     </script>
 </body>
