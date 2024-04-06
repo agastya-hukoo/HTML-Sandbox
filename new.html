@@ -197,18 +197,23 @@ function sendMessage() {
 
 
 function addMessage(sender, message) {
-    const lines = message.split('\n').filter(line => line.trim() !== '');
+    const lines = message.split('\n');
     lines.forEach((line, index) => {
-        const newMessage = document.createElement('div');
-        newMessage.style.marginBottom = '10px';
-        newMessage.innerHTML = `
-            <span>${index === 0 ? sender : ''}:&nbsp;</span>${line}
-        `;
-        chatBox.appendChild(newMessage);
+        const trimmedLine = line.trim();
+        if (trimmedLine !== '') {
+            const newMessage = document.createElement('div');
+            newMessage.style.marginBottom = '10px';
+            newMessage.innerHTML = `
+                <span>${index === 0 ? sender : ''}:&nbsp;</span>${trimmedLine}
+            `;
+            chatBox.appendChild(newMessage);
+        }
     });
     // Scroll to the bottom of the chat box
     chatBox.scrollTop = chatBox.scrollHeight;
 }
+
+
 
 </script>
 </body>
