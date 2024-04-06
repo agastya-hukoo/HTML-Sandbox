@@ -6,47 +6,62 @@
 <title>ChatGPT-like Webpage</title>
 <style>
     body {
-        font-family: Arial, sans-serif;
+        font-family: 'Courier New', Courier, monospace;
         margin: 0;
         padding: 0;
-        background-color: #222;
-        color: #ddd;
+        background-color: #000;
+        color: #0f0;
+        overflow-x: hidden;
     }
     .container {
-        max-width: 800px;
-        margin: 20px auto;
+        max-width: 100%;
+        margin: 20px;
         padding: 20px;
-        background-color: #333;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        background-color: #000;
+        border: 2px solid #0f0;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        box-sizing: border-box;
     }
     #chat-box {
-        border: 1px solid #444;
         padding: 10px;
         margin-bottom: 10px;
         min-height: 200px;
         max-height: 300px;
         overflow-y: scroll;
-        background-color: #222;
+        background-color: #000;
         border-radius: 5px;
+        border: 1px solid #0f0;
+        box-sizing: border-box;
     }
     #user-input {
         width: calc(100% - 70px);
         padding: 5px 10px;
-        border: 1px solid #444;
-        border-radius: 5px 0 0 5px;
-        margin-right: -5px;
-        background-color: #444;
-        color: #ddd;
+        border: 1px solid #0f0;
+        border-radius: 5px;
+        margin-right: 10px;
+        background-color: #000;
+        color: #0f0;
+        box-sizing: border-box;
+        outline: none;
     }
     #send-btn {
-        width: 70px;
+        width: 60px;
         padding: 5px;
-        border: 1px solid #444;
-        border-radius: 0 5px 5px 0;
-        background-color: #007bff;
-        color: #fff;
+        border: 1px solid #0f0;
+        border-radius: 5px;
+        background-color: #000;
+        color: #0f0;
         cursor: pointer;
+        box-sizing: border-box;
+    }
+    @media (max-width: 600px) {
+        #user-input {
+            width: calc(100% - 60px);
+        }
+        #send-btn {
+            width: 50px;
+        }
     }
 </style>
 </head>
@@ -54,7 +69,7 @@
 <div class="container">
     <div id="chat-box"></div>
     <div>
-        <input type="text" id="user-input" placeholder="Type a message...">
+        <input type="text" id="user-input" placeholder=">">
         <button id="send-btn">Send</button>
     </div>
 </div>
@@ -63,27 +78,34 @@
     const userInput = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
 
-    sendBtn.addEventListener('click', function() {
+    sendBtn.addEventListener('click', sendMessage);
+    userInput.addEventListener('keydown', function(event) {
+        if (event.keyCode === 13) {
+            sendMessage();
+        }
+    });
+
+    function sendMessage() {
         const userMessage = userInput.value.trim();
         if (userMessage !== '') {
             addMessage('You', userMessage);
             userInput.value = '';
-            // Simulating a response from "ChatGPT"
-            setTimeout(function() {
-                addMessage('ChatGPT', 'This is a response from ChatGPT.');
-            }, 500);
+            // Respond based on user input
+            if (userMessage.toLowerCase() === 'hello') {
+                addMessage('ChatGPT', 'Hi there!');
+            } else if (userMessage.toLowerCase() === 'how are you?') {
+                addMessage('ChatGPT', 'I am a computer program, so I don\'t have feelings, but thank you for asking!');
+            } else {
+                addMessage('ChatGPT', 'I\'m sorry, I didn\'t understand that.');
+            }
         }
-    });
+    }
 
     function addMessage(sender, message) {
         const newMessage = document.createElement('div');
         newMessage.style.marginBottom = '10px';
-        if (sender === 'You') {
-            newMessage.style.textAlign = 'right';
-        }
         newMessage.innerHTML = `
-            <div style="color: #aaa; font-size: 12px; margin-bottom: 2px;">${sender}</div>
-            <div style="background-color: ${sender === 'You' ? '#007bff' : '#444'}; color: ${sender === 'You' ? '#fff' : '#ddd'}; padding: 10px; border-radius: ${sender === 'You' ? '10px 0 10px 10px' : '0 10px 10px 10px'};">${message}</div>
+            <span style="color: #0f0;">${sender}:&nbsp;</span>${message}
         `;
         chatBox.appendChild(newMessage);
         // Scroll to the bottom of the chat box
