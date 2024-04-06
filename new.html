@@ -77,7 +77,16 @@
         display: none;
     }
     .popup-content {
+        display: flex;
+        align-items: center;
+    }
+    .popup-artwork {
+        flex: 1;
         text-align: center;
+        padding-right: 20px;
+    }
+    .popup-login {
+        flex: 1;
     }
     .popup-close {
         position: absolute;
@@ -91,10 +100,22 @@
 <body>
 <div class="popup" id="popup">
     <div class="popup-content">
-        <h2>Welcome to the ChatGPT-like Webpage!</h2>
-        <p>This is a terminal-like chat interface. Type a message and press Enter to send.</p>
-        <span class="popup-close" onclick="closePopup()">Close</span>
+        <div class="popup-artwork">
+            <img src="artwork.webp" alt="Artwork" style="max-width: 100%;">
+        </div>
+        <div class="popup-login">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username"><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password"><br><br>
+                <button type="submit">Submit</button>
+                <p id="error-message" style="color: red; display: none;">Incorrect login details. Please try again.</p>
+            </form>
+        </div>
     </div>
+    <span class="popup-close" onclick="closePopup()">Close</span>
 </div>
 <div class="container">
     <div id="chat-box"></div>
@@ -108,6 +129,8 @@
     const userInput = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
     const popup = document.getElementById('popup');
+    const loginForm = document.getElementById('login-form');
+    const errorMessage = document.getElementById('error-message');
 
     // Show popup on page load
     window.onload = function() {
@@ -117,6 +140,19 @@
     function closePopup() {
         popup.style.display = 'none';
     }
+
+    function checkLogin(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        if (username === 'admin' && password === 'password') {
+            closePopup();
+        } else {
+            errorMessage.style.display = 'block';
+        }
+    }
+
+    loginForm.addEventListener('submit', checkLogin);
 
     sendBtn.addEventListener('click', sendMessage);
     userInput.addEventListener('keydown', function(event) {
