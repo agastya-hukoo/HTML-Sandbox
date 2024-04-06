@@ -6,21 +6,20 @@
 <title>ChatGPT-like Webpage</title>
 <style>
     body {
-        font-family: 'Ubuntu Mono', monospace;
+        font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #000;
-        color: #00ff00;
+        background-color: #1e1e1e;
+        color: #d4d4d4;
         overflow-x: hidden;
     }
     .container {
         max-width: 100%;
         margin: 20px;
         padding: 20px;
-        background-color: #000;
-        border: 2px solid #00ff00;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        background-color: #252525;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         box-sizing: border-box;
     }
     #chat-box {
@@ -29,29 +28,29 @@
         min-height: 200px;
         max-height: 300px;
         overflow-y: scroll;
-        background-color: #000;
+        background-color: #333333;
         border-radius: 5px;
-        border: 1px solid #00ff00;
+        border: 1px solid #555555;
         box-sizing: border-box;
     }
     #user-input {
         width: calc(100% - 70px);
         padding: 5px 10px;
-        border: 1px solid #00ff00;
+        border: 1px solid #555555;
         border-radius: 5px;
         margin-right: 10px;
-        background-color: #000;
-        color: #00ff00;
+        background-color: #333333;
+        color: #d4d4d4;
         box-sizing: border-box;
         outline: none;
     }
     #send-btn {
         width: 60px;
         padding: 5px;
-        border: 1px solid #00ff00;
+        border: 1px solid #555555;
         border-radius: 5px;
-        background-color: #000;
-        color: #00ff00;
+        background-color: #007bff;
+        color: #fff;
         cursor: pointer;
         box-sizing: border-box;
     }
@@ -69,10 +68,10 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: rgba(0, 0, 0, 0.8);
-        color: #00ff00;
+        color: #fff;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         z-index: 999;
         display: none;
     }
@@ -92,7 +91,7 @@
         position: absolute;
         top: 10px;
         right: 10px;
-        color: #00ff00;
+        color: #fff;
         cursor: pointer;
     }
 </style>
@@ -181,7 +180,7 @@
         const newMessage = document.createElement('div');
         newMessage.style.marginBottom = '10px';
         newMessage.innerHTML = `
-            <span style="color: #00ff00;">${sender}:&nbsp;</span>${message}
+            <span style="color: #0f0;">${sender}:&nbsp;</span>${message}
         `;
         chatBox.appendChild(newMessage);
         // Scroll to the bottom of the chat box
