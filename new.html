@@ -9,35 +9,40 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f0f0f0;
+        background-color: #222;
+        color: #ddd;
     }
     .container {
         max-width: 800px;
         margin: 20px auto;
         padding: 20px;
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        background-color: #333;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
     #chat-box {
-        border: 1px solid #ccc;
+        border: 1px solid #444;
         padding: 10px;
         margin-bottom: 10px;
         min-height: 200px;
         max-height: 300px;
         overflow-y: scroll;
+        background-color: #222;
+        border-radius: 5px;
     }
     #user-input {
         width: calc(100% - 70px);
         padding: 5px 10px;
-        border: 1px solid #ccc;
+        border: 1px solid #444;
         border-radius: 5px 0 0 5px;
         margin-right: -5px;
+        background-color: #444;
+        color: #ddd;
     }
     #send-btn {
         width: 70px;
         padding: 5px;
-        border: 1px solid #ccc;
+        border: 1px solid #444;
         border-radius: 0 5px 5px 0;
         background-color: #007bff;
         color: #fff;
@@ -72,7 +77,14 @@
 
     function addMessage(sender, message) {
         const newMessage = document.createElement('div');
-        newMessage.innerHTML = `<strong>${sender}:</strong> ${message}`;
+        newMessage.style.marginBottom = '10px';
+        if (sender === 'You') {
+            newMessage.style.textAlign = 'right';
+        }
+        newMessage.innerHTML = `
+            <div style="color: #aaa; font-size: 12px; margin-bottom: 2px;">${sender}</div>
+            <div style="background-color: ${sender === 'You' ? '#007bff' : '#444'}; color: ${sender === 'You' ? '#fff' : '#ddd'}; padding: 10px; border-radius: ${sender === 'You' ? '10px 0 10px 10px' : '0 10px 10px 10px'};">${message}</div>
+        `;
         chatBox.appendChild(newMessage);
         // Scroll to the bottom of the chat box
         chatBox.scrollTop = chatBox.scrollHeight;
