@@ -6,11 +6,11 @@
 <title>ChatGPT-like Webpage</title>
 <style>
     body {
-        font-family: 'Courier New', Courier, monospace;
+        font-family: 'Ubuntu Mono', monospace;
         margin: 0;
         padding: 0;
         background-color: #000;
-        color: #0f0;
+        color: #00ff00;
         overflow-x: hidden;
     }
     .container {
@@ -18,7 +18,7 @@
         margin: 20px;
         padding: 20px;
         background-color: #000;
-        border: 2px solid #0f0;
+        border: 2px solid #00ff00;
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
         box-sizing: border-box;
@@ -31,27 +31,27 @@
         overflow-y: scroll;
         background-color: #000;
         border-radius: 5px;
-        border: 1px solid #0f0;
+        border: 1px solid #00ff00;
         box-sizing: border-box;
     }
     #user-input {
         width: calc(100% - 70px);
         padding: 5px 10px;
-        border: 1px solid #0f0;
+        border: 1px solid #00ff00;
         border-radius: 5px;
         margin-right: 10px;
         background-color: #000;
-        color: #0f0;
+        color: #00ff00;
         box-sizing: border-box;
         outline: none;
     }
     #send-btn {
         width: 60px;
         padding: 5px;
-        border: 1px solid #0f0;
+        border: 1px solid #00ff00;
         border-radius: 5px;
         background-color: #000;
-        color: #0f0;
+        color: #00ff00;
         cursor: pointer;
         box-sizing: border-box;
     }
@@ -63,9 +63,39 @@
             width: 50px;
         }
     }
+    .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #00ff00;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        z-index: 999;
+        display: none;
+    }
+    .popup-content {
+        text-align: center;
+    }
+    .popup-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #00ff00;
+        cursor: pointer;
+    }
 </style>
 </head>
 <body>
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <h2>Welcome to the ChatGPT-like Webpage!</h2>
+        <p>This is a terminal-like chat interface. Type a message and press Enter to send.</p>
+        <span class="popup-close" onclick="closePopup()">Close</span>
+    </div>
+</div>
 <div class="container">
     <div id="chat-box"></div>
     <div>
@@ -77,6 +107,16 @@
     const chatBox = document.getElementById('chat-box');
     const userInput = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
+    const popup = document.getElementById('popup');
+
+    // Show popup on page load
+    window.onload = function() {
+        popup.style.display = 'block';
+    };
+
+    function closePopup() {
+        popup.style.display = 'none';
+    }
 
     sendBtn.addEventListener('click', sendMessage);
     userInput.addEventListener('keydown', function(event) {
@@ -105,7 +145,7 @@
         const newMessage = document.createElement('div');
         newMessage.style.marginBottom = '10px';
         newMessage.innerHTML = `
-            <span style="color: #0f0;">${sender}:&nbsp;</span>${message}
+            <span style="color: #00ff00;">${sender}:&nbsp;</span>${message}
         `;
         chatBox.appendChild(newMessage);
         // Scroll to the bottom of the chat box
