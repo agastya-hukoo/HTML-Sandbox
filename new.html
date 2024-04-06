@@ -169,15 +169,16 @@
     function sendMessage() {
         const userMessage = userInput.value.trim();
         if (userMessage !== '') {
-            addMessage('You', userMessage);
+            const timestamp = new Date().toLocaleString();
+            addMessage('[username] ' + timestamp, userMessage);
             userInput.value = '';
             // Respond based on user input
             if (userMessage.toLowerCase() === 'hello') {
-                addMessage('ChatGPT', 'Hi there!');
+                addMessage('[Entity] ' + timestamp, 'Hi there!');
             } else if (userMessage.toLowerCase() === 'how are you?') {
-                addMessage('ChatGPT', 'I am a computer program, so I don\'t have feelings, but thank you for asking!');
+                addMessage('[Entity] ' + timestamp, 'I am a computer program, so I don\'t have feelings, but thank you for asking!');
             } else {
-                addMessage('ChatGPT', 'I\'m sorry, I didn\'t understand that.');
+                addMessage('[Entity] ' + timestamp, 'I\'m sorry, I didn\'t understand that.');
             }
         }
     }
