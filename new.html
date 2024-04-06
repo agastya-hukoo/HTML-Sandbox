@@ -166,22 +166,33 @@
         }
     });
 
-    function sendMessage() {
-        const userMessage = userInput.value.trim();
-        if (userMessage !== '') {
-            const timestamp = new Date().toLocaleString();
-            addMessage('[username] ' + timestamp, userMessage);
-            userInput.value = '';
-            // Respond based on user input
-            if (userMessage.toLowerCase() === 'hello') {
-                addMessage('[Entity] ' + timestamp, 'Hi there!');
-            } else if (userMessage.toLowerCase() === 'how are you?') {
-                addMessage('[Entity] ' + timestamp, 'I am a computer program, so I don\'t have feelings, but thank you for asking!');
+function sendMessage() {
+    const userMessage = userInput.value.trim();
+    if (userMessage !== '') {
+        const timestamp = new Date().toLocaleString();
+        addMessage('[username] ' + timestamp, userMessage);
+        userInput.value = '';
+
+        if (userMessage.toLowerCase() === '!specs') {
+            addMessage('[Entity] ' + timestamp, 'PC Specifications:');
+            addMessage('[Entity] ' + timestamp, 'CPU: Intel Core i7-9700K');
+            addMessage('[Entity] ' + timestamp, 'GPU: NVIDIA GeForce RTX 2080 Ti');
+            addMessage('[Entity] ' + timestamp, 'RAM: 32GB DDR4');
+        } else if (userMessage.toLowerCase().startsWith('!exec')) {
+            const command = userMessage.substring(5).trim();
+            if (command === 'hfsmun.org login_wixsite') {
+                addMessage('[Entity] ' + timestamp, 'Login details obtained.');
+                addMessage('[Entity] ' + timestamp, 'Email: hfsmun@hfspowai.in');
+                addMessage('[Entity] ' + timestamp, 'Password: Hfs@Mun123');
             } else {
-                addMessage('[Entity] ' + timestamp, 'I\'m sorry, I didn\'t understand that.');
+                addMessage('[Entity] ' + timestamp, 'Invalid command.');
             }
+        } else {
+            addMessage('[Entity] ' + timestamp, 'I\'m sorry, I didn\'t understand that.');
         }
     }
+}
+
 
     function addMessage(sender, message) {
         const newMessage = document.createElement('div');
