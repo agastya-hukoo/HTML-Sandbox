@@ -25,8 +25,8 @@
     #chat-box {
         padding: 10px;
         margin-bottom: 10px;
-        min-height: 200px;
-        max-height: 300px;
+        min-height: 400px;
+        max-height: 600px;
         overflow-y: scroll;
         background-color: #333333;
         border-radius: 5px;
@@ -67,13 +67,15 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: rgba(0, 0, 0, 0.8);
-        color: #fff;
+        background-color: #333333;
+        color: #d4d4d4;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         z-index: 999;
         display: none;
+        width: 80%;
+        max-width: 800px;
     }
     .popup-content {
         display: flex;
@@ -81,11 +83,15 @@
     }
     .popup-artwork {
         flex: 1;
-        text-align: center;
-        padding-right: 20px;
+    }
+    .popup-artwork img {
+        max-width: 100%;
+        height: auto;
+        display: block;
     }
     .popup-login {
         flex: 1;
+        padding-left: 20px;
     }
     .popup-close {
         position: absolute;
@@ -100,7 +106,7 @@
 <div class="popup" id="popup">
     <div class="popup-content">
         <div class="popup-artwork">
-            <img src="artwork.webp" alt="Artwork" style="max-width: 100%;">
+            <img src="artwork.webp" alt="Artwork">
         </div>
         <div class="popup-login">
             <h2>Login</h2>
