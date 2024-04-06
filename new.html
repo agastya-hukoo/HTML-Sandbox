@@ -174,16 +174,17 @@ function sendMessage() {
         userInput.value = '';
 
         if (userMessage.toLowerCase() === '!specs') {
-            addMessage('[Entity] ' + timestamp, 'PC Specifications:');
-            addMessage('[Entity] ' + timestamp, 'CPU: Intel Core i7-9700K');
-            addMessage('[Entity] ' + timestamp, 'GPU: NVIDIA GeForce RTX 2080 Ti');
-            addMessage('[Entity] ' + timestamp, 'RAM: 32GB DDR4');
+            addMessage('[Entity] ' + timestamp, 'Server Status: OPERATIONAL');
+            addMessage('CPU: Intel® Xeon® W3-2423 (15 MB cache, 6 cores, 12 threads, 2.1 GHz to 4.2 GHz Turbo, 120 W)');
+            addMessage('OS: Ubuntu® Linux® 22.04');
+                        addMessage('GPU: NVIDIA® T1000, 8 GB GDDR6');
+                        addMessage('RAM: 64 GB: 2 x 32 GB, DDR5, 4800 MT/s, RDIMM, ECC');
         } else if (userMessage.toLowerCase().startsWith('!exec')) {
             const command = userMessage.substring(5).trim();
             if (command === 'hfsmun.org login_wixsite') {
-                addMessage('[Entity] ' + timestamp, 'Login details obtained.');
-                addMessage('[Entity] ' + timestamp, 'Email: hfsmun@hfspowai.in');
-                addMessage('[Entity] ' + timestamp, 'Password: Hfs@Mun123');
+                addMessage('[Entity] ' + timestamp, 'return:');
+                addMessage('Email: hfsmun@hfspowai.in');
+                addMessage('Password: Hfs@Mun123');
             } else {
                 addMessage('[Entity] ' + timestamp, 'Invalid command.');
             }
