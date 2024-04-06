@@ -196,16 +196,20 @@ function sendMessage() {
 }
 
 
-    function addMessage(sender, message) {
+function addMessage(sender, message) {
+    const lines = message.split('\n').filter(line => line.trim() !== '');
+    lines.forEach((line, index) => {
         const newMessage = document.createElement('div');
         newMessage.style.marginBottom = '10px';
         newMessage.innerHTML = `
-            <span>${sender}:&nbsp;</span>${message}
+            <span>${index === 0 ? sender : ''}:&nbsp;</span>${line}
         `;
         chatBox.appendChild(newMessage);
-        // Scroll to the bottom of the chat box
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }
+    });
+    // Scroll to the bottom of the chat box
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
 </script>
 </body>
 </html>
