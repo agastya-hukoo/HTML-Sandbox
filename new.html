@@ -32,6 +32,7 @@
         border-radius: 5px;
         border: 1px solid #555555;
         box-sizing: border-box;
+        color: white; /* Set text color to white */
     }
     #user-input {
         width: calc(100% - 70px);
@@ -199,7 +200,7 @@ function sendMessage() {
         const newMessage = document.createElement('div');
         newMessage.style.marginBottom = '10px';
         newMessage.innerHTML = `
-            <span style="color: #0f0;">${sender}:&nbsp;</span>${message}
+            <span>${sender}:&nbsp;</span>${message}
         `;
         chatBox.appendChild(newMessage);
         // Scroll to the bottom of the chat box
