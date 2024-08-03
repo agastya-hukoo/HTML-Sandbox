@@ -9,28 +9,39 @@
             margin: 0;
             padding: 0;
             font-family: 'Consolas', monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
             background-color: #f4f4f4;
             color: #333;
             overflow-x: hidden;
-        }
-
-        h1 {
-            white-space: pre;
-            font-size: 1.5rem;
-            text-align: left;
-            margin: 0;
-            padding-left: 20px;
+            line-height: 1.6;
         }
 
         .full-screen {
             height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            white-space: pre;
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 0;
+        }
+
+        section {
+            max-width: 800px;
+            padding: 50px 20px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-align: left;
         }
 
         .fade-in {
@@ -42,36 +53,36 @@
             opacity: 1;
         }
 
-        section {
-            max-width: 800px;
-            padding: 50px 20px;
+        #credits {
+            margin-top: 50px;
+        }
+
+        .credit-category {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 20px;
             text-align: left;
-            font-size: 1rem;
-            line-height: 1.6;
         }
 
-        section h2 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-        }
-
-        .credits-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: flex-start;
+        .credit-item {
+            margin-bottom: 10px;
+            text-align: left;
         }
 
         .credit-name {
             font-size: 1rem;
             font-weight: bold;
-            flex-basis: calc(50% - 20px);
         }
 
         .credit-role {
             font-size: 0.8rem;
             font-style: italic;
             color: #555;
+        }
+
+        #contact {
+            text-align: center;
+            margin-top: 50px;
         }
 
         @keyframes typing {
@@ -85,20 +96,6 @@
             white-space: nowrap;
             margin: 0 auto;
             animation: typing 4s steps(40, end);
-        }
-
-        #credits, #contribute, #contact {
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        #credits.visible, #contribute.visible, #contact.visible {
-            opacity: 1;
-        }
-
-        #contact {
-            margin-top: 50px;
-            font-size: 1rem;
         }
     </style>
 </head>
@@ -122,74 +119,61 @@
 
 <section class="fade-in" id="credits">
     <h2>Credits</h2>
-    <div class="credits-section">
-        <div>
-            <div class="credit-name">Alice Brown</div>
-            <div class="credit-role">Founder</div>
-        </div>
 
-        <div>
-            <div class="credit-name">John Doe</div>
-            <div class="credit-role">Lead Developer</div>
-        </div>
-        <div>
-            <div class="credit-name">Jane Smith</div>
-            <div class="credit-role">Project Manager</div>
-        </div>
-        <div>
-            <div class="credit-name">Bob Johnson</div>
-            <div class="credit-role">Designer</div>
-        </div>
+    <div class="credit-category">Founder</div>
+    <div class="credit-item">
+        <div class="credit-name">Alice Brown</div>
+        <div class="credit-role">Founder</div>
+    </div>
 
-        <h3>Research and Engineering</h3>
-        <div>
-            <div class="credit-name">Emily White</div>
-            <div class="credit-role">Mechanical Engineer</div>
-        </div>
-        <div>
-            <div class="credit-name">David Green</div>
-            <div class="credit-role">Electrical Engineer</div>
-        </div>
+    <div class="credit-category">Research and Engineering</div>
+    <div class="credit-item">
+        <div class="credit-name">Emily White</div>
+        <div class="credit-role">Mechanical Engineer</div>
+    </div>
+    <div class="credit-item">
+        <div class="credit-name">David Green</div>
+        <div class="credit-role">Electrical Engineer</div>
+    </div>
 
-        <h3>3D Printing and Structural Engineering</h3>
-        <div>
-            <div class="credit-name">Michael Blue</div>
-            <div class="credit-role">Structural Engineer</div>
-        </div>
-        <div>
-            <div class="credit-name">Sarah Black</div>
-            <div class="credit-role">3D Printing Specialist</div>
-        </div>
+    <div class="credit-category">3D Printing and Structural Engineering</div>
+    <div class="credit-item">
+        <div class="credit-name">Michael Blue</div>
+        <div class="credit-role">Structural Engineer</div>
+    </div>
+    <div class="credit-item">
+        <div class="credit-name">Sarah Black</div>
+        <div class="credit-role">3D Printing Specialist</div>
+    </div>
 
-        <h3>Software Engineering</h3>
-        <div>
-            <div class="credit-name">Chris Red</div>
-            <div class="credit-role">Frontend Developer</div>
-        </div>
-        <div>
-            <div class="credit-name">Jessica Yellow</div>
-            <div class="credit-role">Backend Developer</div>
-        </div>
+    <div class="credit-category">Software Engineering</div>
+    <div class="credit-item">
+        <div class="credit-name">Chris Red</div>
+        <div class="credit-role">Frontend Developer</div>
+    </div>
+    <div class="credit-item">
+        <div class="credit-name">Jessica Yellow</div>
+        <div class="credit-role">Backend Developer</div>
+    </div>
 
-        <h3>Advisors</h3>
-        <div>
-            <div class="credit-name">Oliver Gray</div>
-            <div class="credit-role">Technical Advisor</div>
-        </div>
-        <div>
-            <div class="credit-name">Sophia Violet</div>
-            <div class="credit-role">Business Advisor</div>
-        </div>
+    <div class="credit-category">Advisors</div>
+    <div class="credit-item">
+        <div class="credit-name">Oliver Gray</div>
+        <div class="credit-role">Technical Advisor</div>
+    </div>
+    <div class="credit-item">
+        <div class="credit-name">Sophia Violet</div>
+        <div class="credit-role">Business Advisor</div>
+    </div>
 
-        <h3>Members</h3>
-        <div>
-            <div class="credit-name">Lucas Orange</div>
-            <div class="credit-role">Team Member</div>
-        </div>
-        <div>
-            <div class="credit-name">Mia Pink</div>
-            <div class="credit-role">Team Member</div>
-        </div>
+    <div class="credit-category">Members</div>
+    <div class="credit-item">
+        <div class="credit-name">Lucas Orange</div>
+        <div class="credit-role">Team Member</div>
+    </div>
+    <div class="credit-item">
+        <div class="credit-name">Mia Pink</div>
+        <div class="credit-role">Team Member</div>
     </div>
 </section>
 
