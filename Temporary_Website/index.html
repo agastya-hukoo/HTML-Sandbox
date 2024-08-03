@@ -3,84 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullscreen ASCII Art Animation</title>
+    <title>Project Landing Page</title>
     <style>
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
+            font-family: 'Consolas', monospace;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            background: black;
-            color: white;
-            font-family: "Consolas", "Courier New", monospace;
-            overflow: hidden;
-            transition: background 1s ease-in-out;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
         }
 
-        #container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
+        h1 {
             white-space: pre;
-            transition: width 1s ease-in-out, height 1s ease-in-out, border-radius 1s ease-in-out;
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 0;
         }
 
-        #asciiArt {
-            font-size: 2vw;
-            line-height: 1.2;
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
 
-        @keyframes moveText {
-            0% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(10px, -10px) scale(1.1); }
-            50% { transform: translate(-10px, 10px) scale(1); }
-            75% { transform: translate(5px, -5px) scale(1.1); }
-            100% { transform: translate(0, 0) scale(1); }
+        .fade-in.visible {
+            opacity: 1;
         }
 
-        .animated {
-            animation: moveText 3s infinite;
+        section {
+            max-width: 600px;
+            padding: 50px 20px;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
 
-        .shrinked {
-            width: 60%;
-            height: auto;
-            border-radius: 15px;
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #333;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 4s steps(40, end);
+        }
+
+        #credits, #contribute, #contact {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #credits.visible, #contribute.visible, #contact.visible {
+            opacity: 1;
+        }
+
+        #contact {
+            margin-top: 50px;
+            font-size: 1rem;
         }
     </style>
 </head>
 <body>
 
-    <div id="container" class="animated">
-        <pre id="asciiArt">
-             _____ _       _____ 
-     /\    / ____| |     / ____|
-    /  \  | (___ | |    | (___  
-   / /\ \  \___ \| |     \___ \ 
-  / ____ \ ____) | |____ ____) |
- /_/    \_\_____/|______|_____/ 
-        </pre>
-    </div>
+<h1 class="typewriter">
+    _____ _       _____ <br>
+     /\    / ____| |     / ____|<br>
+    /  \  | (___ | |    | (___  <br>
+   / /\ \  \___ \| |     \___ \ <br>
+  / ____ \ ____) | |____ ____) |<br>
+ /_/    \_\_____/|______|_____/ <br>
+</h1>
 
-    <script>
-        document.addEventListener('scroll', function() {
-            const container = document.getElementById('container');
-            const scrollPosition = window.scrollY;
+<section class="fade-in" id="info">
+    <p>This project is a collaborative effort focused on creating innovative solutions to real-world problems. Our team is dedicated to pushing the boundaries of technology, creativity, and human potential.</p>
+</section>
 
-            if (scrollPosition > 0) {
-                container.classList.add('shrinked');
-                container.classList.remove('animated');
-            } else {
-                container.classList.remove('shrinked');
-                container.classList.add('animated');
+<footer id="credits" class="fade-in">
+    <p>Credits:</p>
+    <ul>
+        <li>John Doe - Lead Developer</li>
+        <li>Jane Smith - Project Manager</li>
+        <li>Bob Johnson - Designer</li>
+    </ul>
+</footer>
+
+<section id="contribute" class="fade-in">
+    <p>We're a small, self-funded, fully-distributed team and we're actively hiring!<br><br>
+
+    Come help us scale, explore, and build humanist infrastructure focused on amplifying the human mind and spirit.<br><br>
+
+    If you're sure you can help, but don't see a position that fits, email us.<br><br>
+
+    We look forward to hearing from you.</p>
+</section>
+
+<section id="contact" class="fade-in">
+    <p>Contact us at: <a href="mailto:team@example.com">team@example.com</a></p>
+</section>
+
+<script>
+    window.addEventListener('scroll', () => {
+        const elements = document.querySelectorAll('.fade-in');
+        elements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                element.classList.add('visible');
             }
         });
-    </script>
+    });
+</script>
 
 </body>
 </html>
