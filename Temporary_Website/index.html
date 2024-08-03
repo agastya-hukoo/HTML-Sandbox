@@ -11,7 +11,7 @@
             font-family: 'Consolas', monospace;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             background-color: #f4f4f4;
             color: #333;
@@ -20,16 +20,17 @@
 
         h1 {
             white-space: pre;
-            font-size: 2rem;
-            text-align: center;
+            font-size: 1.5rem;
+            text-align: left;
             margin: 0;
+            padding-left: 20px;
         }
 
         .full-screen {
             height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .fade-in {
@@ -42,31 +43,33 @@
         }
 
         section {
-            max-width: 600px;
+            max-width: 800px;
             padding: 50px 20px;
-            text-align: center;
-            font-size: 1.1rem;
+            text-align: left;
+            font-size: 1rem;
             line-height: 1.6;
         }
 
         section h2 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 20px;
         }
 
-        footer {
-            margin-top: 50px;
-            font-size: 1.1rem;
-            text-align: center;
+        .credits-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
         }
 
         .credit-name {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: bold;
+            flex-basis: calc(50% - 20px);
         }
 
         .credit-role {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-style: italic;
             color: #555;
         }
@@ -103,12 +106,12 @@
 
 <div class="full-screen">
     <h1 class="typewriter">
-                 _____ _       _____ <br>
-         /\    / ____| |     / ____|<br>
-        /  \  | (___ | |    | (___  <br>
-       / /\ \  \___ \| |     \___ \ <br>
-      / ____ \ ____) | |____ ____) |<br>
-     /_/    \_\_____/|______|_____/ <br>
+        _____ _       _____ <br>
+        /\    / ____| |     / ____|<br>
+       /  \  | (___ | |    | (___  <br>
+      / /\ \  \___ \| |     \___ \ <br>
+     / ____ \ ____) | |____ ____) |<br>
+    /_/    \_\_____/|______|_____/ <br>
     </h1>
 </div>
 
@@ -118,14 +121,76 @@
 </section>
 
 <section class="fade-in" id="credits">
-    <div class="credit-name">John Doe</div>
-    <div class="credit-role">Lead Developer</div>
-    <br>
-    <div class="credit-name">Jane Smith</div>
-    <div class="credit-role">Project Manager</div>
-    <br>
-    <div class="credit-name">Bob Johnson</div>
-    <div class="credit-role">Designer</div>
+    <h2>Credits</h2>
+    <div class="credits-section">
+        <div>
+            <div class="credit-name">Alice Brown</div>
+            <div class="credit-role">Founder</div>
+        </div>
+
+        <div>
+            <div class="credit-name">John Doe</div>
+            <div class="credit-role">Lead Developer</div>
+        </div>
+        <div>
+            <div class="credit-name">Jane Smith</div>
+            <div class="credit-role">Project Manager</div>
+        </div>
+        <div>
+            <div class="credit-name">Bob Johnson</div>
+            <div class="credit-role">Designer</div>
+        </div>
+
+        <h3>Research and Engineering</h3>
+        <div>
+            <div class="credit-name">Emily White</div>
+            <div class="credit-role">Mechanical Engineer</div>
+        </div>
+        <div>
+            <div class="credit-name">David Green</div>
+            <div class="credit-role">Electrical Engineer</div>
+        </div>
+
+        <h3>3D Printing and Structural Engineering</h3>
+        <div>
+            <div class="credit-name">Michael Blue</div>
+            <div class="credit-role">Structural Engineer</div>
+        </div>
+        <div>
+            <div class="credit-name">Sarah Black</div>
+            <div class="credit-role">3D Printing Specialist</div>
+        </div>
+
+        <h3>Software Engineering</h3>
+        <div>
+            <div class="credit-name">Chris Red</div>
+            <div class="credit-role">Frontend Developer</div>
+        </div>
+        <div>
+            <div class="credit-name">Jessica Yellow</div>
+            <div class="credit-role">Backend Developer</div>
+        </div>
+
+        <h3>Advisors</h3>
+        <div>
+            <div class="credit-name">Oliver Gray</div>
+            <div class="credit-role">Technical Advisor</div>
+        </div>
+        <div>
+            <div class="credit-name">Sophia Violet</div>
+            <div class="credit-role">Business Advisor</div>
+        </div>
+
+        <h3>Members</h3>
+        <div>
+            <div class="credit-name">Lucas Orange</div>
+            <div class="credit-role">Team Member</div>
+        </div>
+        <div>
+            <div class="credit-name">Mia Pink</div>
+            <div class="credit-role">Team Member</div>
+        </div>
+    </div>
 </section>
 
 <section class="fade-in" id="contribute">
