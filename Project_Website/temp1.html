@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIAA DesignBuildFly Team</title>
+    <style>
+        /* Dark Theme */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            margin-bottom: 50px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff6347;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hero-section h2 {
+            font-size: 2rem;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            animation: fadeInUp 1s ease-in-out 0.5s;
+        }
+
+        .about-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .about-section img {
+            width: 30%;
+            border-radius: 10px;
+            animation: fadeInLeft 1s ease-in-out;
+        }
+
+        .about-section div {
+            width: 65%;
+            padding-left: 20px;
+        }
+
+        .about-section h3 {
+            font-size: 1.5rem;
+            animation: fadeInRight 1s ease-in-out;
+        }
+
+        .about-section p {
+            font-size: 1rem;
+            animation: fadeInRight 1s ease-in-out 0.5s;
+        }
+
+        .services-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .services-section div {
+            width: 30%;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .services-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .services-section p {
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 20px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #ff6347;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>AIAA DesignBuildFly Team</h1>
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Welcome to AIAA DesignBuildFly Team</h2>
+        <p>Empowering the Future with Advanced AI and Aerospace Solutions.</p>
+    </section>
+
+    <section id="about" class="about-section">
+        <img src="https://via.placeholder.com/400x300" alt="Team Image">
+        <div>
+            <h3>About Us</h3>
+            <p>AIAA DesignBuildFly Team is dedicated to innovation and excellence in the field of aerospace engineering. We bring cutting-edge AI technology to revolutionize design, build, and flight solutions.</p>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div>
+            <h3>Design</h3>
+            <p>We specialize in innovative designs that push the boundaries of aerospace technology. Our team combines creativity with technical expertise to deliver unique and efficient solutions.</p>
+        </div>
+        <div>
+            <h3>Build</h3>
+            <p>Our build process is meticulous and precise, ensuring that each component meets our high standards for quality and performance. We utilize the latest manufacturing techniques to bring your designs to life.</p>
+        </div>
+        <div>
+            <h3>Fly</h3>
+            <p>We are passionate about flight. Our team works closely with pilots and other stakeholders to ensure that each aircraft is safe, reliable, and capable of performing at its best.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Contact Us: <a href="mailto:info@aiaadesignbuildfly.com">info@aiaadesignbuildfly.com</a> | <a href="tel:+1234567890">(123) 456-7890</a></p>
+    </footer>
+</div>
+
+<script>
+    // JavaScript for additional interactivity
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+
+        window.onscroll = function() {
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 50) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.hash === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        };
+    });
+</script>
+
+</body>
+</html>
