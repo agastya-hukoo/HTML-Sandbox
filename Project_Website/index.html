@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <meta name="description" content="Mukesh Patel School of Technology Management and Engineering - Design Build Fly Team" />
+    <title>Design Build Fly | Mukesh Patel School of Technology Management and Engineering</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Team Logo">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#timeline">Timeline</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Home Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade-in">Design Build Fly Team</h1>
+            <p class="hero-subtitle animate-slide-up">Mukesh Patel School of Technology Management and Engineering</p>
+            <a href="#about" class="btn btn-primary animate-pop-in">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p class="section-subtitle">Building the future of aerospace, one prototype at a time.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        The Design Build Fly team at Mukesh Patel School of Technology Management and Engineering is dedicated 
+                        to advancing aerospace education through hands-on experiences. Our members are passionate students, 
+                        innovators, and engineers-in-training who design and construct unique aircraft for prestigious 
+                        international competitions. We integrate technology, creativity, and teamwork to achieve flight 
+                        systems that push boundaries and inspire the next generation of aerospace leaders.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="images/hero-bg.jpg" alt="Aircraft Model">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline section-padding" id="timeline">
+        <div class="container">
+            <h2 class="section-title">Our Journey</h2>
+            <p class="section-subtitle">A chronological glance at our milestones and achievements.</p>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-date">2020</div>
+                    <div class="timeline-content">
+                        <h3>Team Formation</h3>
+                        <p>Our team was formed by a small group of enthusiasts who shared a common goal: to design and build a winning aircraft for the DBF competition.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2021</div>
+                    <div class="timeline-content">
+                        <h3>First Competition Entry</h3>
+                        <p>We submitted our first prototype aircraft to the international DBF challenge and gained invaluable experience from the design and testing processes.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-content">
+                        <h3>Improved Aerodynamics</h3>
+                        <p>Incorporating computational fluid dynamics and advanced materials, we refined our aircraft design, improving lift-to-drag ratios and overall performance.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h3>Top Rankings Achieved</h3>
+                        <p>Our aircraft excelled in international competitions, earning top spots and recognition for its innovative design and execution.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h3>Next Generation Aircraft</h3>
+                        <p>With new members and ideas onboard, we’re currently developing our next prototype, pushing the boundaries of flight once again.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team section-padding" id="team">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-subtitle">A group of passionate students, engineers, and innovators.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="images/team-member1.jpg" alt="Team Member 1">
+                    <h3>John Doe</h3>
+                    <p>Aerodynamics Lead</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team-member2.jpg" alt="Team Member 2">
+                    <h3>Jane Smith</h3>
+                    <p>Structural Engineer</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team-member1.jpg" alt="Team Member 3">
+                    <h3>Michael Lee</h3>
+                    <p>Avionics Specialist</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team-member2.jpg" alt="Team Member 4">
+                    <h3>Emily Chen</h3>
+                    <p>Project Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section-padding" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">We’d love to hear from you. Reach out with your questions and collaborations.</p>
+            <form class="contact-form">
+                <div class="form-row">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2024 Mukesh Patel School of Technology Management and Engineering - Design Build Fly Team</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
