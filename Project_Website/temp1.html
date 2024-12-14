@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIAA DesignBuildFly Team</title>
     <style>
-        /* Dark Theme */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #121212;
@@ -50,7 +49,7 @@
             transition: color 0.3s ease;
         }
 
-        nav a:hover {
+        nav a:hover, .nav-link.active {
             color: #ff6347;
         }
 
@@ -69,56 +68,58 @@
             animation: fadeInUp 1s ease-in-out 0.5s;
         }
 
-        .about-section {
+        .about-section, .services-section, .team-section {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 50px;
         }
 
-        .about-section img {
+        .about-section img, .services-section div, .team-member-image {
             width: 30%;
             border-radius: 10px;
             animation: fadeInLeft 1s ease-in-out;
         }
 
-        .about-section div {
+        .about-section div, .services-section div {
             width: 65%;
             padding-left: 20px;
         }
 
-        .about-section h3 {
-            font-size: 1.5rem;
-            animation: fadeInRight 1s ease-in-out;
+        .team-member-image {
+            cursor: pointer;
         }
 
-        .about-section p {
-            font-size: 1rem;
-            animation: fadeInRight 1s ease-in-out 0.5s;
+        .team-member-bio {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
         }
 
-        .services-section {
+        .team-member-bio.active {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            margin-bottom: 50px;
         }
 
-        .services-section div {
-            width: 30%;
+        .bio-content {
+            background-color: #1e1e1e;
             padding: 20px;
             border-radius: 10px;
-            background-color: #1e1e1e;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            animation: fadeInUp 1s ease-in-out;
+            color: #ffffff;
         }
 
-        .services-section h3 {
+        .bio-content h3 {
             font-size: 1.5rem;
-            margin-bottom: 10px;
         }
 
-        .services-section p {
+        .bio-content p {
             font-size: 1rem;
         }
 
@@ -158,6 +159,18 @@
             from { opacity: 0; transform: translateX(20px); }
             to { opacity: 1; transform: translateX(0); }
         }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav, .about-section, .services-section, .team-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-section img, .services-section div, .team-member-image {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -166,9 +179,10 @@
     <header>
         <h1>AIAA DesignBuildFly Team</h1>
         <nav>
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <a href="#about" class="nav-link">About Us</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#team" class="nav-link">Team</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </nav>
     </header>
 
@@ -200,34 +214,88 @@
         </div>
     </section>
 
+    <section id="team" class="team-section">
+        <div class="team-member-image" data-bio="member1">
+            <img src="https://via.placeholder.com/200x300" alt="Member 1">
+        </div>
+        <div class="team-member-image" data-bio="member2">
+            <img src="https://via.placeholder.com/200x300" alt="Member 2">
+        </div>
+        <div class="team-member-image" data-bio="member3">
+            <img src="https://via.placeholder.com/200x300" alt="Member 3">
+        </div>
+    </section>
+
     <footer>
         <p>Contact Us: <a href="mailto:info@aiaadesignbuildfly.com">info@aiaadesignbuildfly.com</a> | <a href="tel:+1234567890">(123) 456-7890</a></p>
     </footer>
+
+    <!-- Team Member Bios -->
+    <div id="member1" class="team-member-bio">
+        <div class="bio-content">
+            <h3>John Doe</h3>
+            <p>Lead Engineer at AIAA DesignBuildFly Team. Specializes in AI-driven design solutions.</p>
+            <button onclick="closeBio()">Close</button>
+        </div>
+    </div>
+
+    <div id="member2" class="team-member-bio">
+        <div class="bio-content">
+            <h3>Jane Smith</h3>
+            <p>Project Manager at AIAA DesignBuildFly Team. Experienced in managing complex aerospace projects.</p>
+            <button onclick="closeBio()">Close</button>
+        </div>
+    </div>
+
+    <div id="member3" class="team-member-bio">
+        <div class="bio-content">
+            <h3>Michael Johnson</h3>
+            <p>Flight Engineer at AIAA DesignBuildFly Team. Ensures the safety and reliability of aircraft designs.</p>
+            <button onclick="closeBio()">Close</button>
+        </div>
+    </div>
 </div>
 
 <script>
-    // JavaScript for additional interactivity
-    document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('nav a');
-        const sections = document.querySelectorAll('section');
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+    const teamMembers = document.querySelectorAll('.team-member-image');
 
-        window.onscroll = function() {
-            let currentSection = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.pageYOffset >= sectionTop - 50) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
+    // Scroll-based navigation
+    window.onscroll = function() {
+        let currentSection = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.pageYOffset >= sectionTop - 50) {
+                currentSection = section.getAttribute('id');
+            }
+        });
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.hash === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        };
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.hash === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    };
+
+    // Team member bio toggle
+    teamMembers.forEach(member => {
+        member.addEventListener('click', function() {
+            const bioId = this.getAttribute('data-bio');
+            document.getElementById(bioId).classList.add('active');
+        });
     });
+
+    // Close bio function
+    function closeBio() {
+        const bios = document.querySelectorAll('.team-member-bio');
+        bios.forEach(bio => {
+            bio.classList.remove('active');
+        });
+    }
+});
 </script>
 
 </body>
